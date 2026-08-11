@@ -1,12 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tarik Sorguc</title>
-  </head>
-  <body>
-    <h1>Tarik Sorguc</h1>
-    <p>Machine Learning Portfolio - Coming Soon</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarik Sorguč | Data Science & AI Engineering</title>
+
+  <!-- Google Fonts: Space Grotesk (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1 class="hero-title">Hi, I'm Tarik Sorguč</h1>
+      <p class="hero-subtitle">Data Science & AI Engineering | ML Intern at FlyRank AI</p>
+      <p class="hero-description">
+        I am passionate about building intelligent systems and turning complex data into actionable insights.
+      </p>
+      <div class="hero-actions">
+        <a href="#cases" class="btn-primary">View My Cases</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases Section -->
+  <section id="cases" class="cases">
+    <div class="cases-container">
+      <h2 class="section-title">Selected Work</h2>
+
+      <div class="cases-grid">
+        <!-- Case 1 -->
+        <article class="case-card">
+          <div class="case-content">
+            <h3 class="case-title">Real-Estate Market Monitor: End-to-End Multimodal Data Ingestion &amp; Semantic Search</h3>
+            <p class="case-description">
+              Built an automated data engineering pipeline that ingests multimodal data (REST APIs, unstructured documents, OCR, audio/video) into MongoDB and MySQL. It features vector embeddings for hybrid semantic search and delivers real-time market insights via a containerized Dash dashboard.
+            </p>
+            <div class="case-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">ChromaDB</span>
+              <span class="tech-tag">Faster-Whisper</span>
+              <span class="tech-tag">Dash</span>
+              <span class="tech-tag">Sentence Transformers</span>
+            </div>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git" target="_blank" rel="noopener noreferrer" class="case-link">
+              View Repository &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case-card">
+          <div class="case-content">
+            <h3 class="case-title">UNSA Racing Team - Automated Sponsorship Outreach Pipeline</h3>
+            <p class="case-description">
+              A lightweight B2B cold email automation system for securing sponsorships. It leverages a local SQLite state machine, dynamic CSV ingestion, and the Google Gemini API to programmatically research, personalize, and sequence outreach emails to Bosnian companies.
+            </p>
+            <div class="case-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">Google Gemini API</span>
+              <span class="tech-tag">SMTP</span>
+            </div>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/sorgerator/unsa_rt_outreach_pipeline" target="_blank" rel="noopener noreferrer" class="case-link">
+              View Repository &rarr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</body>
 </html>
+
