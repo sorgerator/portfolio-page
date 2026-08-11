@@ -3,19 +3,21 @@
    ========================================================================== */
 :root {
   /* Color Palette */
-  --bg-color: #F3F4F6;         /* Light Gray Background */
-  --text-main: #111827;        /* Deep Carbon Black */
-  --text-muted: #4B5563;       /* Muted Slate Gray for body text */
-  --accent-red: #EF4444;       /* Punchy Racing Red Accent */
-  --accent-red-hover: #DC2626; /* Darker Red for Button Hover */
+  --bg-color: #f3f4f6; /* Light Gray Background */
+  --text-main: #111827; /* Deep Carbon Black */
+  --text-muted: #4b5563; /* Muted Slate Gray for body text */
+  --accent-red: #ef4444; /* Punchy Racing Red Accent */
+  --accent-red-hover: #dc2626; /* Darker Red for Button Hover */
 
   /* Typography */
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 /* Reset margins and paddings for consistent browser rendering */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -85,12 +87,15 @@ body {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: var(--accent-red);
   padding: 0.875rem 1.75rem;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
@@ -124,7 +129,7 @@ body {
 
 /* Red accent bar under section title */
 .section-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 48px;
   height: 4px;
@@ -142,21 +147,24 @@ body {
 
 /* Card Container */
 .case-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .case-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  border-color: #D1D5DB;
+  border-color: #d1d5db;
 }
 
 .case-title {
@@ -187,8 +195,8 @@ body {
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--text-main);
-  background-color: #F3F4F6;
-  border: 1px solid #E5E7EB;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
   padding: 0.25rem 0.625rem;
   border-radius: 6px;
 }
@@ -197,7 +205,7 @@ body {
 .case-footer {
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid #F3F4F6;
+  border-top: 1px solid #f3f4f6;
 }
 
 .case-link {
@@ -209,7 +217,9 @@ body {
   font-weight: 600;
   color: var(--accent-red);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .case-link:hover {
@@ -281,8 +291,8 @@ body {
 }
 
 .about-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 2.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -341,8 +351,8 @@ body {
   font-weight: 600;
   text-decoration: none;
   color: var(--text-main);
-  background-color: #FFFFFF;
-  border: 1px solid #D1D5DB;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
   padding: 0.875rem 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
@@ -351,7 +361,7 @@ body {
 
 .btn-secondary:hover {
   border-color: var(--text-main);
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
@@ -363,7 +373,7 @@ body {
   font-weight: 600;
   color: var(--text-muted);
   background: transparent;
-  border: 1px dashed #D1D5DB;
+  border: 1px dashed #d1d5db;
   padding: 0.875rem 1.25rem;
   border-radius: 8px;
   cursor: pointer;
@@ -373,13 +383,13 @@ body {
 .btn-copy:hover {
   color: var(--text-main);
   border-color: var(--text-main);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .btn-copy.copied {
   color: #059669;
   border-color: #059669;
-  background-color: #ECFDF5;
+  background-color: #ecfdf5;
   border-style: solid;
 }
 
@@ -408,7 +418,7 @@ body {
 }
 
 .social-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -431,7 +441,7 @@ body {
    ========================================================================== */
 .site-footer {
   padding: 3rem 1.5rem;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid #e5e7eb;
   background-color: var(--bg-color);
 }
 
@@ -443,4 +453,4 @@ body {
   color: var(--text-muted);
 }
 
-
+/* test */
