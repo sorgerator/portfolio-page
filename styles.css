@@ -82,7 +82,9 @@ body {
    3. BUTTON & ACCENT STYLING
    ========================================================================== */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
@@ -309,6 +311,15 @@ body {
   margin-bottom: 0;
 }
 
+.about-actions {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 /* ==========================================================================
    7. CONTACT SECTION & SOCIAL LINKS
    ========================================================================== */
@@ -345,7 +356,9 @@ body {
 }
 
 .btn-secondary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
@@ -436,8 +449,166 @@ body {
   width: 100%;
 }
 
+/* Calendar Embed Collapsible Container */
+.calendar-embed-card {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calendar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.calendar-card-header:hover {
+  background-color: #f9fafb;
+}
+
+.calendar-embed-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendar-toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.calendar-card-header:hover .calendar-toggle-badge {
+  background-color: var(--accent-red);
+  color: #ffffff;
+  border-color: var(--accent-red);
+}
+
+.chevron-icon {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-embed-card.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Smooth Slide Down/Fade In Animation */
+.calendar-embed-wrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.calendar-embed-card.open .calendar-embed-wrapper {
+  max-height: 700px;
+  opacity: 1;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.calendar-embed-wrapper iframe {
+  width: 100%;
+  height: 600px;
+  border: 0;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .calendar-card-header {
+    padding: 1rem 1.25rem;
+  }
+  .calendar-embed-card.open .calendar-embed-wrapper {
+    padding: 0 0.75rem 1rem 0.75rem;
+    max-height: 600px;
+  }
+  .calendar-embed-wrapper iframe {
+    height: 520px;
+  }
+}
+
 /* ==========================================================================
-   8. FOOTER
+   8. FUTURE CONTENT SECTION (COMING SOON)
+   ========================================================================== */
+.future {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg-color);
+}
+
+.future-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.placeholder-card {
+  border-style: dashed;
+  border-color: #d1d5db;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-card:hover {
+  border-color: var(--accent-red);
+  background-color: #ffffff;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-red);
+  background-color: rgba(239, 68, 68, 0.08);
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  margin-bottom: 0.875rem;
+}
+
+.placeholder-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+/* ==========================================================================
+   9. FOOTER
    ========================================================================== */
 .site-footer {
   padding: 3rem 1.5rem;
@@ -453,4 +624,4 @@ body {
   color: var(--text-muted);
 }
 
-/* test */
+
