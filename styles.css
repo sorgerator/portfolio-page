@@ -809,8 +809,44 @@ body.modal-open {
   cursor: pointer;
 }
 
+.form-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .modal-cancel-btn {
   cursor: pointer;
+}
+
+/* Form Status Messages (Success / Error alerts) */
+.form-status {
+  padding: 0.875rem 1.125rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.form-status.status-success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.form-status.status-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.form-status.status-error a {
+  color: var(--accent-red);
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 /* Responsive adjustment for mobile screens */

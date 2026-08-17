@@ -248,9 +248,27 @@
         </button>
       </div>
 
-      <form class="contact-form modal-form" name="contact" method="POST" data-netlify="true">
+      <form
+        class="contact-form modal-form"
+        id="contactForm"
+        name="contact"
+        method="POST"
+        action="/"
+        data-netlify="true"
+        netlify
+        data-netlify-honeypot="bot-field"
+        onsubmit="handleContactSubmit(event)"
+      >
         <!-- Required hidden input for Netlify Form handling -->
         <input type="hidden" name="form-name" value="contact" />
+
+        <!-- Netlify Honeypot Bot Field (hidden from real users) -->
+        <p class="hidden-field" style="display: none;">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Status / Alert Message Container -->
+        <div id="formStatusMessage" class="form-status" style="display: none;" role="alert"></div>
 
         <div class="form-grid">
           <div class="form-group">
@@ -293,9 +311,9 @@
         </div>
 
         <div class="modal-form-actions">
-          <button type="submit" class="btn-primary form-submit-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            Send Message
+          <button type="submit" class="btn-primary form-submit-btn" id="submitBtn">
+            <svg class="submit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span class="submit-btn-text">Send Message</span>
           </button>
           <button type="button" class="btn-secondary modal-cancel-btn" onclick="closeContactModal()">
             Cancel
@@ -355,6 +373,67 @@
         closeContactModal();
       }
     });
+
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = submitBtn ? submitBtn.querySelector('.submit-btn-text') : null;
+      const statusDiv = document.getElementById('formStatusMessage');
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending...';
+      if (statusDiv) {
+        statusDiv.style.display = 'none';
+        statusDiv.className = 'form-status';
+        statusDiv.textContent = '';
+      }
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+
+        if (response.ok || (isLocal && (response.status === 404 || response.status === 405))) {
+          if (statusDiv) {
+            statusDiv.className = 'form-status status-success';
+            statusDiv.textContent = isLocal
+              ? 'Form test successful! (On Netlify, this will submit directly to Netlify Forms)'
+              : 'Thank you! Your message has been sent successfully.';
+            statusDiv.style.display = 'block';
+          }
+          form.reset();
+
+          setTimeout(() => {
+            closeContactModal();
+            if (statusDiv) statusDiv.style.display = 'none';
+          }, 2500);
+        } else {
+          throw new Error('Form submission failed with status ' + response.status);
+        }
+      } catch (err) {
+        console.error('Netlify Form submission error:', err);
+        if (statusDiv) {
+          statusDiv.className = 'form-status status-error';
+          statusDiv.innerHTML = 'Oops! There was a problem sending your message. Please try again or reach out at <a href="mailto:tarik.sorguc1@gmail.com">tarik.sorguc1@gmail.com</a>.';
+          statusDiv.style.display = 'block';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Send Message';
+      }
+    }
 
     function toggleCalendar(e) {
       if (e) {
