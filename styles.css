@@ -46,10 +46,11 @@ body {
    ========================================================================== */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1.5rem;
+  padding: 6rem 1.5rem 4rem;
 }
 
 .hero-container {
@@ -119,6 +120,7 @@ body {
 .cases {
   padding: 6rem 1.5rem;
   background-color: var(--bg-color);
+  scroll-margin-top: 5rem;
 }
 
 .cases-container {
@@ -901,6 +903,12 @@ body.modal-open {
 
 /* Tablet & Medium Mobile Screens (<= 640px) */
 @media (max-width: 640px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 6rem 1.25rem 4rem;
+  }
+
   .cases,
   .about,
   .contact,
@@ -1061,8 +1069,9 @@ body.modal-open {
 
   /* Hero Section */
   .hero {
-    padding: 5.5rem 1.25rem 3rem;
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 6.5rem 1.25rem 4rem;
   }
 
   .hero-title {
@@ -1083,7 +1092,8 @@ body.modal-open {
   .about,
   .contact,
   .future {
-    padding: 3.5rem 1.25rem;
+    padding: 4.5rem 1.25rem;
+    scroll-margin-top: 4rem;
   }
 
   .section-title {
