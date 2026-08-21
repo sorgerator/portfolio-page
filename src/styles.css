@@ -451,43 +451,44 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.25rem;
+  gap: 0.75rem;
   margin-top: 0.5rem;
   width: 100%;
 }
 
 .social-link {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  text-decoration: none;
-  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   min-height: 44px;
-  padding: 0.5rem 0.25rem;
-  transition: color 0.2s ease;
+  min-width: 44px;
+  color: var(--text-main);
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
 }
 
-.social-link::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 0.25rem;
-  right: 0.25rem;
-  width: 0%;
-  height: 2px;
-  background-color: var(--accent-red);
-  transition: width 0.2s ease;
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
 }
 
 .social-link:hover {
   color: var(--accent-red);
+  border-color: var(--accent-red);
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
 }
 
-.social-link:hover::after {
-  width: calc(100% - 0.5rem);
+.social-link:hover svg {
+  transform: scale(1.1);
 }
 
 /* Calendar Embed Collapsible Container */
@@ -1155,15 +1156,16 @@ body.modal-open {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem 0.875rem;
+    gap: 0.625rem;
     justify-content: flex-start;
     margin-top: 0.5rem;
   }
 
   .social-link {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.2rem;
+    width: 44px;
+    height: 44px;
     min-height: 44px;
+    min-width: 44px;
   }
 
   /* Calendar Embed on Mobile L */
