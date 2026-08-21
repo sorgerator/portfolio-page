@@ -1,502 +1,805 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarik Sorguč | Data Science & AI Engineering</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarik Sorguč | Data Science & AI Engineering</title>
 
-  <!-- Google Fonts: Space Grotesk (Headings) & Inter (Body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Portfolio of Tarik Sorguč, Data Science & AI Engineering student and ML Intern at FlyRank AI. Specializing in robust data pipelines and intelligent systems."
+    />
+    <meta name="author" content="Tarik Sorguč" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/logo_ss.png">
+    <!-- Open Graph / Social Share Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourcustomdomain.com/" />
+    <meta
+      property="og:title"
+      content="Tarik Sorguč | Data Science & AI Engineering"
+    />
+    <meta
+      property="og:description"
+      content="I engineer robust data pipelines that turn unstructured data into production-ready inputs for ML models."
+    />
+    <meta
+      property="og:image"
+      content="https://yourcustomdomain.com/assets/logo_ss.png"
+    />
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <!-- Google Fonts: Space Grotesk (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Navigation Bar -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#" class="nav-logo">
-        <img src="assets/logo_ss.png" alt="Tarik Sorguč Logo" class="nav-logo-img">
-        <span class="nav-logo-text">Tarik Sorguč</span>
-      </a>
-      <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-      </button>
-      <div class="nav-links" id="navLinks">
-        <a href="#cases">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#future">Coming Soon</a>
-      </div>
-    </div>
-  </nav>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo_ss.png" />
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-container">
-      <h1 class="hero-title">Hi, I'm Tarik Sorguč</h1>
-      <p class="hero-subtitle">Data Science & AI Engineering | ML Intern at FlyRank AI</p>
-      <p class="hero-description">
-        I engineer robust data pipelines that turn unstructured data into production-ready inputs for ML models.
-      </p>
-      <div class="hero-actions">
-        <a href="#cases" class="btn-primary">View My Cases</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cases Section -->
-  <section id="cases" class="cases">
-    <div class="cases-container">
-      <h2 class="section-title">Selected Work</h2>
-
-      <div class="cases-grid">
-        <!-- Case 1 -->
-        <article class="case-card">
-          <div class="case-content">
-            <h3 class="case-title">Real-Estate Market Monitor: End-to-End Multimodal Data Ingestion &amp; Semantic Search</h3>
-            <p class="case-description">
-              Built an automated data engineering pipeline that ingests multimodal data (REST APIs, unstructured documents, OCR, audio/video) into MongoDB and MySQL. It features vector embeddings for hybrid semantic search and delivers real-time market insights via a containerized Dash dashboard.
-            </p>
-            <div class="case-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">ChromaDB</span>
-              <span class="tech-tag">Faster-Whisper</span>
-              <span class="tech-tag">Dash</span>
-              <span class="tech-tag">Sentence Transformers</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <a href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git" target="_blank" rel="noopener noreferrer" class="case-link">
-              View Repository &rarr;
-            </a>
-          </div>
-        </article>
-
-        <!-- Case 2 -->
-        <article class="case-card">
-          <div class="case-content">
-            <h3 class="case-title">UNSA Racing Team - Automated Sponsorship Outreach Pipeline</h3>
-            <p class="case-description">
-              A lightweight B2B cold email automation system for securing sponsorships. It leverages a local SQLite state machine, dynamic CSV ingestion, and the Google Gemini API to programmatically research, personalize, and sequence outreach emails to Bosnian companies.
-            </p>
-            <div class="case-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQLite</span>
-              <span class="tech-tag">Google Gemini API</span>
-              <span class="tech-tag">SMTP</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <a href="https://github.com/sorgerator/unsa_rt_outreach_pipeline" target="_blank" rel="noopener noreferrer" class="case-link">
-              View Repository &rarr;
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="about-container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-card">
-        <p class="about-text">
-          I am a final-year IT Engineering student majoring in Data Science at International Burch University in Sarajevo. I specialize in building intelligent systems, data engineering pipelines, and agentic workflows.
-        </p>
-        <p class="about-text">
-          Currently, I am a Machine Learning Intern at FlyRank AI.
-        </p>
-        <p class="about-text">
-          Beyond the screen, I am a former member of the Bosnian national Latin dance team and currently coach Latin and ballroom dances at SPK Bolero Sarajevo. I am also an aviation and space geek, and I love spending my downtime skiing and hiking.
-        </p>
-        <div class="about-actions">
-          <a href="assets/Tarik_Sorguc_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            View CV
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="contact-container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-description">
-        Whether you want to discuss data science, automated workflows, or just say hello, my inbox is open. You can also schedule a meeting directly using the calendar below, view my CV, or connect with me on social media.
-      </p>
-
-      <div class="contact-actions">
-        <div class="email-buttons">
-          <button type="button" class="btn-primary" id="contactModalBtn" onclick="openContactModal()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            Contact Me
-          </button>
-          <a href="#calendar-booking" class="btn-secondary" id="bookMeetingBtn" onclick="toggleCalendar(event)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            Book a Meeting
-          </a>
-          <a href="assets/Tarik_Sorguc_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            View CV
-          </a>
-        </div>
-
-        <div class="social-links">
-          <a href="mailto:tarik.sorguc1@gmail.com" class="social-link">Email</a>
-          <a href="#calendar-booking" class="social-link" onclick="toggleCalendar(event)">Book a Meeting</a>
-          <a href="assets/Tarik_Sorguc_CV.pdf" target="_blank" rel="noopener noreferrer" class="social-link">View CV</a>
-          <a href="https://www.linkedin.com/in/tarik-sorguc-27137523b/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-          <a href="https://www.facebook.com/tarik.sorguc/" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
-          <a href="https://www.instagram.com/tarik.sorguc/" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
-          <a href="https://discord.com/users/829740236544278559" target="_blank" rel="noopener noreferrer" class="social-link">Discord</a>
-        </div>
-
-        <!-- Google Calendar Appointment Scheduling Embed Container (Collapsed by Default) -->
-        <div id="calendar-booking" class="calendar-embed-card">
-          <div class="calendar-card-header" onclick="toggleCalendar(event)" role="button" tabindex="0" aria-expanded="false" aria-controls="calendarWrapper">
-            <h3 class="calendar-embed-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              Book a Meeting
-            </h3>
-            <div class="calendar-toggle-badge" id="calendarToggleBadge">
-              <span id="calendarToggleText">Show Calendar</span>
-              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-          </div>
-          <div class="calendar-embed-wrapper" id="calendarWrapper">
-            <!-- Google Calendar Appointment Scheduling begin -->
-            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ35yhNdrTy8BIUPj41eDQjksxolHmvD9Lw_-KVYSHuqttGbCDZvLEy666dKnJLiO5NnymEpQQ1G?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-            <!-- end Google Calendar Appointment Scheduling -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Future Content Section (Just above Footer) -->
-  <section id="future" class="future">
-    <div class="future-container">
-      <h2 class="section-title">Coming Soon</h2>
-
-      <div class="cases-grid">
-        <!-- Placeholder 1: Upcoming Blog Posts -->
-        <article class="case-card placeholder-card">
-          <div class="case-content">
-            <div class="placeholder-badge">Coming Soon</div>
-            <h3 class="case-title">Upcoming Blog Posts</h3>
-            <p class="case-description">
-              A curated series of articles exploring machine learning engineering, automated data pipelines, vector search optimization, and key takeaways from real-world AI implementations.
-            </p>
-            <div class="case-tech">
-              <span class="tech-tag">Technical Writing</span>
-              <span class="tech-tag">Data Science</span>
-              <span class="tech-tag">AI Engineering</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span class="placeholder-status">
-              <span class="status-dot"></span> Publishing Soon
-            </span>
-          </div>
-        </article>
-
-        <!-- Placeholder 2: FlyRank Capstone Project -->
-        <article class="case-card placeholder-card">
-          <div class="case-content">
-            <div class="placeholder-badge">Coming Soon</div>
-            <h3 class="case-title">FlyRank Capstone Project</h3>
-            <p class="case-description">
-              The flagship capstone research and engineering project developed during the Machine Learning Internship at FlyRank AI, focusing on production-grade intelligent systems.
-            </p>
-            <div class="case-tech">
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">FlyRank AI</span>
-              <span class="tech-tag">Capstone Project</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span class="placeholder-status">
-              <span class="status-dot"></span> In Development
-            </span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form Modal (Netlify Forms) -->
-  <div id="contact-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-backdrop" onclick="closeContactModal()"></div>
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-header-text">
-          <h3 id="modalTitle" class="modal-title">Get In Touch</h3>
-          <p class="modal-subtitle">Send me a message directly and I'll get back to you soon.</p>
-        </div>
-        <button type="button" class="modal-close-btn" onclick="closeContactModal()" aria-label="Close contact modal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img
+            src="assets/logo_ss.png"
+            alt="Tarik Sorguč Logo"
+            class="nav-logo-img"
+          />
+          <span class="nav-logo-text">Tarik Sorguč</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
         </button>
+        <div class="nav-links" id="navLinks">
+          <a href="#cases">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#future">Coming Soon</a>
+        </div>
       </div>
+    </nav>
 
-      <form
-        class="contact-form modal-form"
-        id="contactForm"
-        name="contact"
-        method="POST"
-        action="/"
-        data-netlify="true"
-        netlify
-        data-netlify-honeypot="bot-field"
-        onsubmit="handleContactSubmit(event)"
-      >
-        <!-- Required hidden input for Netlify Form handling -->
-        <input type="hidden" name="form-name" value="contact" />
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <h1 class="hero-title">Hi, I'm Tarik Sorguč</h1>
+        <p class="hero-subtitle">
+          Data Science & AI Engineering | ML Intern at FlyRank AI
+        </p>
+        <p class="hero-description">
+          I engineer robust data pipelines that turn unstructured data into
+          production-ready inputs for ML models.
+        </p>
+        <div class="hero-actions">
+          <a href="#cases" class="btn-primary">View My Cases</a>
+        </div>
+      </div>
+    </section>
 
-        <!-- Netlify Honeypot Bot Field (hidden from real users) -->
-        <p class="hidden-field" style="display: none;">
-          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    <!-- Cases Section -->
+    <section id="cases" class="cases">
+      <div class="cases-container">
+        <h2 class="section-title">Selected Work</h2>
+
+        <div class="cases-grid">
+          <!-- Case 1 -->
+          <article class="case-card">
+            <div class="case-content">
+              <h3 class="case-title">
+                Real-Estate Market Monitor: End-to-End Multimodal Data Ingestion
+                &amp; Semantic Search
+              </h3>
+              <p class="case-description">
+                Built an automated data engineering pipeline that ingests
+                multimodal data (REST APIs, unstructured documents, OCR,
+                audio/video) into MongoDB and MySQL. It features vector
+                embeddings for hybrid semantic search and delivers real-time
+                market insights via a containerized Dash dashboard.
+              </p>
+              <div class="case-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">ChromaDB</span>
+                <span class="tech-tag">Faster-Whisper</span>
+                <span class="tech-tag">Dash</span>
+                <span class="tech-tag">Sentence Transformers</span>
+              </div>
+            </div>
+            <div class="case-footer">
+              <a
+                href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-link"
+              >
+                View Repository &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article class="case-card">
+            <div class="case-content">
+              <h3 class="case-title">
+                UNSA Racing Team - Automated Sponsorship Outreach Pipeline
+              </h3>
+              <p class="case-description">
+                A lightweight B2B cold email automation system for securing
+                sponsorships. It leverages a local SQLite state machine, dynamic
+                CSV ingestion, and the Google Gemini API to programmatically
+                research, personalize, and sequence outreach emails to Bosnian
+                companies.
+              </p>
+              <div class="case-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Google Gemini API</span>
+                <span class="tech-tag">SMTP</span>
+              </div>
+            </div>
+            <div class="case-footer">
+              <a
+                href="https://github.com/sorgerator/unsa_rt_outreach_pipeline"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-link"
+              >
+                View Repository &rarr;
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="about-container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+          <p class="about-text">
+            I am a final-year IT Engineering student majoring in Data Science at
+            International Burch University in Sarajevo. I specialize in building
+            intelligent systems, data engineering pipelines, and agentic
+            workflows.
+          </p>
+          <p class="about-text">
+            Currently, I am a Machine Learning Intern at FlyRank AI.
+          </p>
+          <p class="about-text">
+            Beyond the screen, I am a former member of the Bosnian national
+            Latin dance team and currently coach Latin and ballroom dances at
+            SPK Bolero Sarajevo. I am also an aviation and space geek, and I
+            love spending my downtime skiing and hiking.
+          </p>
+          <div class="about-actions">
+            <a
+              href="assets/Tarik_Sorguc_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              View CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="contact-container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-description">
+          Whether you want to discuss data science, automated workflows, or just
+          say hello, my inbox is open. You can also schedule a meeting directly
+          using the calendar below, view my CV, or connect with me on social
+          media.
         </p>
 
-        <!-- Status / Alert Message Container -->
-        <div id="formStatusMessage" class="form-status" style="display: none;" role="alert"></div>
+        <div class="contact-actions">
+          <div class="email-buttons">
+            <button
+              type="button"
+              class="btn-primary"
+              id="contactModalBtn"
+              onclick="openContactModal()"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Contact Me
+            </button>
+            <a
+              href="#calendar-booking"
+              class="btn-secondary"
+              id="bookMeetingBtn"
+              onclick="toggleCalendar(event)"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Book a Meeting
+            </a>
+            <a
+              href="assets/Tarik_Sorguc_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              View CV
+            </a>
+          </div>
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="contact-name" class="form-label">Name</label>
-            <input
-              type="text"
-              id="contact-name"
-              name="name"
-              class="form-input"
-              placeholder="Your name"
-              required
-              autocomplete="name"
-            />
+          <div class="social-links">
+            <a href="mailto:tarik.sorguc1@gmail.com" class="social-link"
+              >Email</a
+            >
+            <a
+              href="#calendar-booking"
+              class="social-link"
+              onclick="toggleCalendar(event)"
+              >Book a Meeting</a
+            >
+            <a
+              href="assets/Tarik_Sorguc_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              >View CV</a
+            >
+            <a
+              href="https://www.linkedin.com/in/tarik-sorguc-27137523b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              >LinkedIn</a
+            >
+            <a
+              href="https://www.facebook.com/tarik.sorguc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              >Facebook</a
+            >
+            <a
+              href="https://www.instagram.com/tarik.sorguc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              >Instagram</a
+            >
+            <a
+              href="https://discord.com/users/829740236544278559"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              >Discord</a
+            >
+          </div>
+
+          <!-- Google Calendar Appointment Scheduling Embed Container (Collapsed by Default) -->
+          <div id="calendar-booking" class="calendar-embed-card">
+            <div
+              class="calendar-card-header"
+              onclick="toggleCalendar(event)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              aria-controls="calendarWrapper"
+            >
+              <h3 class="calendar-embed-title">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Book a Meeting
+              </h3>
+              <div class="calendar-toggle-badge" id="calendarToggleBadge">
+                <span id="calendarToggleText">Show Calendar</span>
+                <svg
+                  class="chevron-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="calendar-embed-wrapper" id="calendarWrapper">
+              <!-- Google Calendar Appointment Scheduling begin -->
+              <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ35yhNdrTy8BIUPj41eDQjksxolHmvD9Lw_-KVYSHuqttGbCDZvLEy666dKnJLiO5NnymEpQQ1G?gv=true"
+                style="border: 0"
+                width="100%"
+                height="600"
+                frameborder="0"
+              ></iframe>
+              <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Content Section (Just above Footer) -->
+    <section id="future" class="future">
+      <div class="future-container">
+        <h2 class="section-title">Coming Soon</h2>
+
+        <div class="cases-grid">
+          <!-- Placeholder 1: Upcoming Blog Posts -->
+          <article class="case-card placeholder-card">
+            <div class="case-content">
+              <div class="placeholder-badge">Coming Soon</div>
+              <h3 class="case-title">Upcoming Blog Posts</h3>
+              <p class="case-description">
+                A curated series of articles exploring machine learning
+                engineering, automated data pipelines, vector search
+                optimization, and key takeaways from real-world AI
+                implementations.
+              </p>
+              <div class="case-tech">
+                <span class="tech-tag">Technical Writing</span>
+                <span class="tech-tag">Data Science</span>
+                <span class="tech-tag">AI Engineering</span>
+              </div>
+            </div>
+            <div class="case-footer">
+              <span class="placeholder-status">
+                <span class="status-dot"></span> Publishing Soon
+              </span>
+            </div>
+          </article>
+
+          <!-- Placeholder 2: FlyRank Capstone Project -->
+          <article class="case-card placeholder-card">
+            <div class="case-content">
+              <div class="placeholder-badge">Coming Soon</div>
+              <h3 class="case-title">FlyRank Capstone Project</h3>
+              <p class="case-description">
+                The flagship capstone research and engineering project developed
+                during the Machine Learning Internship at FlyRank AI, focusing
+                on production-grade intelligent systems.
+              </p>
+              <div class="case-tech">
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">FlyRank AI</span>
+                <span class="tech-tag">Capstone Project</span>
+              </div>
+            </div>
+            <div class="case-footer">
+              <span class="placeholder-status">
+                <span class="status-dot"></span> In Development
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Modal (Netlify Forms) -->
+    <div
+      id="contact-modal"
+      class="modal-overlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-backdrop" onclick="closeContactModal()"></div>
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-header-text">
+            <h3 id="modalTitle" class="modal-title">Get In Touch</h3>
+            <p class="modal-subtitle">
+              Send me a message directly and I'll get back to you soon.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="modal-close-btn"
+            onclick="closeContactModal()"
+            aria-label="Close contact modal"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <form
+          class="contact-form modal-form"
+          id="contactForm"
+          name="contact"
+          method="POST"
+          action="/"
+          data-netlify="true"
+          netlify
+          data-netlify-honeypot="bot-field"
+          onsubmit="handleContactSubmit(event)"
+        >
+          <!-- Required hidden input for Netlify Form handling -->
+          <input type="hidden" name="form-name" value="contact" />
+
+          <!-- Netlify Honeypot Bot Field (hidden from real users) -->
+          <p class="hidden-field" style="display: none">
+            <label
+              >Don’t fill this out if you're human: <input name="bot-field"
+            /></label>
+          </p>
+
+          <!-- Status / Alert Message Container -->
+          <div
+            id="formStatusMessage"
+            class="form-status"
+            style="display: none"
+            role="alert"
+          ></div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                class="form-input"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                class="form-input"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              />
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="contact-email" class="form-label">Email</label>
-            <input
-              type="email"
-              id="contact-email"
-              name="email"
-              class="form-input"
-              placeholder="you@example.com"
+            <label for="contact-message" class="form-label">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              class="form-input form-textarea"
+              rows="5"
+              placeholder="How can I help you?"
               required
-              autocomplete="email"
-            />
+            ></textarea>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="contact-message" class="form-label">Message</label>
-          <textarea
-            id="contact-message"
-            name="message"
-            class="form-input form-textarea"
-            rows="5"
-            placeholder="How can I help you?"
-            required
-          ></textarea>
-        </div>
-
-        <div class="modal-form-actions">
-          <button type="submit" class="btn-primary form-submit-btn" id="submitBtn">
-            <svg class="submit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            <span class="submit-btn-text">Send Message</span>
-          </button>
-          <button type="button" class="btn-secondary modal-cancel-btn" onclick="closeContactModal()">
-            Cancel
-          </button>
-        </div>
-      </form>
+          <div class="modal-form-actions">
+            <button
+              type="submit"
+              class="btn-primary form-submit-btn"
+              id="submitBtn"
+            >
+              <svg
+                class="submit-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span class="submit-btn-text">Send Message</span>
+            </button>
+            <button
+              type="button"
+              class="btn-secondary modal-cancel-btn"
+              onclick="closeContactModal()"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <p>&copy; Tarik Sorguč. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>&copy; Tarik Sorguč. All rights reserved.</p>
+      </div>
+    </footer>
 
-  <!-- Interactive Scripts -->
-  <script>
-    function openContactModal() {
-      const modal = document.getElementById('contact-modal');
-      if (!modal) return;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-      setTimeout(() => {
-        const nameInput = document.getElementById('contact-name');
-        if (nameInput) nameInput.focus();
-      }, 100);
-    }
-
-    function closeContactModal() {
-      const modal = document.getElementById('contact-modal');
-      if (!modal) return;
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-      const triggerBtn = document.getElementById('contactModalBtn');
-      if (triggerBtn) triggerBtn.focus();
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeContactModal();
-      }
-    });
-
-    async function handleContactSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const submitBtn = document.getElementById('submitBtn');
-      const btnText = submitBtn ? submitBtn.querySelector('.submit-btn-text') : null;
-      const statusDiv = document.getElementById('formStatusMessage');
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.textContent = 'Sending...';
-      if (statusDiv) {
-        statusDiv.style.display = 'none';
-        statusDiv.className = 'form-status';
-        statusDiv.textContent = '';
-      }
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
-        });
-
-        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-
-        if (response.ok || (isLocal && (response.status === 404 || response.status === 405))) {
-          if (statusDiv) {
-            statusDiv.className = 'form-status status-success';
-            statusDiv.textContent = isLocal
-              ? 'Form test successful! (On Netlify, this will submit directly to Netlify Forms)'
-              : 'Thank you! Your message has been sent successfully.';
-            statusDiv.style.display = 'block';
-          }
-          form.reset();
-
-          setTimeout(() => {
-            closeContactModal();
-            if (statusDiv) statusDiv.style.display = 'none';
-          }, 2500);
-        } else {
-          throw new Error('Form submission failed with status ' + response.status);
-        }
-      } catch (err) {
-        console.error('Netlify Form submission error:', err);
-        if (statusDiv) {
-          statusDiv.className = 'form-status status-error';
-          statusDiv.innerHTML = 'Oops! There was a problem sending your message. Please try again or reach out at <a href="mailto:tarik.sorguc1@gmail.com">tarik.sorguc1@gmail.com</a>.';
-          statusDiv.style.display = 'block';
-        }
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = 'Send Message';
-      }
-    }
-
-    function toggleCalendar(e) {
-      if (e) {
-        e.preventDefault();
-      }
-      const card = document.getElementById('calendar-booking');
-      const badgeText = document.getElementById('calendarToggleText');
-      const header = document.querySelector('.calendar-card-header');
-
-      if (!card) return;
-
-      const isOpen = card.classList.contains('open');
-
-      if (isOpen) {
-        card.classList.remove('open');
-        if (badgeText) badgeText.textContent = 'Show Calendar';
-        if (header) header.setAttribute('aria-expanded', 'false');
-      } else {
-        card.classList.add('open');
-        if (badgeText) badgeText.textContent = 'Hide Calendar';
-        if (header) header.setAttribute('aria-expanded', 'true');
+    <!-- Interactive Scripts -->
+    <script>
+      function openContactModal() {
+        const modal = document.getElementById("contact-modal");
+        if (!modal) return;
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
         setTimeout(() => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          const nameInput = document.getElementById("contact-name");
+          if (nameInput) nameInput.focus();
         }, 100);
       }
-    }
 
-    // Mobile Navigation Toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+      function closeContactModal() {
+        const modal = document.getElementById("contact-modal");
+        if (!modal) return;
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        const triggerBtn = document.getElementById("contactModalBtn");
+        if (triggerBtn) triggerBtn.focus();
+      }
 
-    function toggleNavMenu(forceState) {
-      if (!navToggle || !navLinks) return;
-      const shouldOpen = forceState !== undefined ? forceState : !navLinks.classList.contains('open');
-      navToggle.classList.toggle('open', shouldOpen);
-      navLinks.classList.toggle('open', shouldOpen);
-      navToggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-    }
-
-    if (navToggle) {
-      navToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleNavMenu();
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeContactModal();
+        }
       });
-    }
 
-    // Close menu when any link inside navLinks is clicked
-    if (navLinks) {
-      navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          toggleNavMenu(false);
-        });
-      });
-    }
+      async function handleContactSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitBtn = document.getElementById("submitBtn");
+        const btnText = submitBtn
+          ? submitBtn.querySelector(".submit-btn-text")
+          : null;
+        const statusDiv = document.getElementById("formStatusMessage");
 
-    // Close menu when clicking outside navbar
-    document.addEventListener('click', function(e) {
-      if (navLinks && navLinks.classList.contains('open')) {
-        const navbar = document.getElementById('navbar');
-        if (navbar && !navbar.contains(e.target)) {
-          toggleNavMenu(false);
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        if (btnText) btnText.textContent = "Sending...";
+        if (statusDiv) {
+          statusDiv.style.display = "none";
+          statusDiv.className = "form-status";
+          statusDiv.textContent = "";
+        }
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+          });
+
+          const isLocal =
+            window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.protocol === "file:";
+
+          if (
+            response.ok ||
+            (isLocal && (response.status === 404 || response.status === 405))
+          ) {
+            if (statusDiv) {
+              statusDiv.className = "form-status status-success";
+              statusDiv.textContent = isLocal
+                ? "Form test successful! (On Netlify, this will submit directly to Netlify Forms)"
+                : "Thank you! Your message has been sent successfully.";
+              statusDiv.style.display = "block";
+            }
+            form.reset();
+
+            setTimeout(() => {
+              closeContactModal();
+              if (statusDiv) statusDiv.style.display = "none";
+            }, 2500);
+          } else {
+            throw new Error(
+              "Form submission failed with status " + response.status,
+            );
+          }
+        } catch (err) {
+          console.error("Netlify Form submission error:", err);
+          if (statusDiv) {
+            statusDiv.className = "form-status status-error";
+            statusDiv.innerHTML =
+              'Oops! There was a problem sending your message. Please try again or reach out at <a href="mailto:tarik.sorguc1@gmail.com">tarik.sorguc1@gmail.com</a>.';
+            statusDiv.style.display = "block";
+          }
+        } finally {
+          if (submitBtn) submitBtn.disabled = false;
+          if (btnText) btnText.textContent = "Send Message";
         }
       }
-    });
 
-    // Close mobile dropdown when resizing beyond Mobile L (425px)
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 425 && navLinks && navLinks.classList.contains('open')) {
-        toggleNavMenu(false);
+      function toggleCalendar(e) {
+        if (e) {
+          e.preventDefault();
+        }
+        const card = document.getElementById("calendar-booking");
+        const badgeText = document.getElementById("calendarToggleText");
+        const header = document.querySelector(".calendar-card-header");
+
+        if (!card) return;
+
+        const isOpen = card.classList.contains("open");
+
+        if (isOpen) {
+          card.classList.remove("open");
+          if (badgeText) badgeText.textContent = "Show Calendar";
+          if (header) header.setAttribute("aria-expanded", "false");
+        } else {
+          card.classList.add("open");
+          if (badgeText) badgeText.textContent = "Hide Calendar";
+          if (header) header.setAttribute("aria-expanded", "true");
+          setTimeout(() => {
+            card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 100);
+        }
       }
-    });
-  </script>
 
-</body>
+      // Mobile Navigation Toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      function toggleNavMenu(forceState) {
+        if (!navToggle || !navLinks) return;
+        const shouldOpen =
+          forceState !== undefined
+            ? forceState
+            : !navLinks.classList.contains("open");
+        navToggle.classList.toggle("open", shouldOpen);
+        navLinks.classList.toggle("open", shouldOpen);
+        navToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+      }
+
+      if (navToggle) {
+        navToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          toggleNavMenu();
+        });
+      }
+
+      // Close menu when any link inside navLinks is clicked
+      if (navLinks) {
+        navLinks.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            toggleNavMenu(false);
+          });
+        });
+      }
+
+      // Close menu when clicking outside navbar
+      document.addEventListener("click", function (e) {
+        if (navLinks && navLinks.classList.contains("open")) {
+          const navbar = document.getElementById("navbar");
+          if (navbar && !navbar.contains(e.target)) {
+            toggleNavMenu(false);
+          }
+        }
+      });
+
+      // Close mobile dropdown when resizing beyond Mobile L (425px)
+      window.addEventListener("resize", function () {
+        if (
+          window.innerWidth > 425 &&
+          navLinks &&
+          navLinks.classList.contains("open")
+        ) {
+          toggleNavMenu(false);
+        }
+      });
+    </script>
+  </body>
 </html>
