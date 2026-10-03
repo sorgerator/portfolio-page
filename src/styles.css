@@ -676,6 +676,22 @@ body {
   color: var(--text-muted);
 }
 
+.footer-badge-wrapper {
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-badge-wrapper a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-badge-wrapper a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 /* ==========================================================================
    10. CONTACT FORM & MODAL (NETLIFY)
    ========================================================================== */
