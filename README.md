@@ -18,7 +18,7 @@ This portfolio showcases selected engineering projects, technical case studies, 
 ## ✨ Features
 
 - **🎨 Modern Dark UI / UX**: Clean dark-mode aesthetic with crimson accent highlights, glassmorphism cards, and typography powered by [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [Inter](https://fonts.google.com/specimen/Inter).
-- **📂 Case Studies & Projects**: Highlights engineering work (e.g., multimodal data ingestion pipelines, automated LLM outreach systems) with tech tags and direct GitHub links.
+- **📂 Case Studies & Projects**: Highlights engineering work (e.g., FlyRank ML search intelligence capstone, multimodal data ingestion pipelines, automated LLM outreach systems) with tech tags and direct GitHub links.
 - **✉️ Interactive Contact Modal**: Asynchronous contact form integration with [Netlify Forms](https://www.netlify.com/products/forms/), client-side validation, and instant feedback alerts.
 - **📅 Embedded Appointment Scheduling**: Integrated [Google Calendar Appointment Scheduling](https://calendar.google.com/) embed with a collapsible accordion toggle.
 - **📱 Fully Responsive Design**: Mobile-friendly navigation drawer with hamburger animation, adaptive grid layouts, and touch-friendly interactions across desktop, tablet, and mobile screens.
