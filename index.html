@@ -471,27 +471,200 @@
       </section>
 
       <!-- 3. Case Studies (Work) Section -->
-      <section id="work" class="cases">
+      <section id="work" class="cases" data-track="data">
         <div class="cases-container">
-          <p class="eyebrow mono">02 / Selected Work</p>
-          <h2 class="section-title">Selected Work</h2>
+          <div class="cases-header">
+            <div class="cases-heading-group">
+              <p class="eyebrow mono">02 / Selected Work</p>
+              <h2 class="section-title">Selected Work</h2>
+            </div>
 
-          <div class="cases-grid">
-            <!-- Case 1 -->
-            <article class="case-card">
-              <div class="case-content">
-                <h3 class="case-title">
-                  Real-Estate Market Monitor: End-to-End Multimodal Data Ingestion
-                  &amp; Semantic Search
+            <!-- Segmented Control: Software | Data and Automation -->
+            <div
+              class="track-segmented"
+              role="tablist"
+              aria-label="Project tracks"
+            >
+              <span class="track-thumb" aria-hidden="true"></span>
+              <button
+                type="button"
+                role="tab"
+                id="tab-software"
+                class="track-tab"
+                data-track-tab="software"
+                aria-selected="false"
+                aria-controls="casesGrid"
+                tabindex="-1"
+              >
+                <span>Software</span>
+                <span class="tab-count" aria-label="4 projects">4</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-data"
+                class="track-tab is-active"
+                data-track-tab="data"
+                aria-selected="true"
+                aria-controls="casesGrid"
+                tabindex="0"
+              >
+                <span>Data and Automation</span>
+                <span class="tab-count" aria-label="3 projects">3</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="cases-grid"
+            id="casesGrid"
+            role="tabpanel"
+            aria-labelledby="tab-data"
+          >
+            <!-- ==============================================================
+                 DATA AND AUTOMATION TRACK (3 Cards)
+                 ============================================================== -->
+
+            <!-- Data 1: FlyRank Capstone (Featured) -->
+            <article class="card featured" data-track="data">
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Data &amp; Automation</span>
+                  <span class="featured-badge">Featured</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="26" width="8" height="14" rx="2" fill="currentColor" opacity="0.35" />
+                  <rect x="16" y="18" width="8" height="22" rx="2" fill="currentColor" opacity="0.55" />
+                  <rect x="28" y="10" width="8" height="30" rx="2" fill="currentColor" opacity="0.8" />
+                  <rect x="40" y="20" width="8" height="20" rx="2" fill="currentColor" opacity="0.45" />
+                  <rect x="52" y="6" width="8" height="34" rx="2" fill="currentColor" />
+                  <path d="M8 22L20 14L32 8L44 16L56 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">July – Sept 2026 · FlyRank AI</p>
+                <h3 class="card-title">
+                  FlyRank Capstone: Content Decay Prediction and Search Intelligence
                 </h3>
-                <p class="case-description">
+                <p class="card-summary">
+                  Automated model that evaluates content decay risk and guides
+                  proactive asset refreshing. Built and evaluated ML ranking
+                  models and data pipelines across ~79M rows of search
+                  discoverability data.
+                </p>
+
+                <!-- Real metrics only (TODO: Add real model performance metrics when supplied) -->
+                <div class="card-metrics" aria-label="Project metrics">
+                  <span class="metric-chip">~79M rows</span>
+                  <span class="metric-chip">2nd place Prolog EXPO</span>
+                </div>
+
+                <div class="card-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">DuckDB</span>
+                  <span class="tech-tag">Hugging Face</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <a
+                    href="https://github.com/sorgerator/flyrank-internship"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
+                  <a
+                    href="https://sorgerator.github.io/flyrank-internship/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Paper &rarr;
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
+                >
+                  Details
+                </button>
+              </div>
+
+              <!-- Hidden detail content for Phase 5 <dialog> -->
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Search visibility decays over time as query intent and
+                    competing pages shift, making it difficult to identify which
+                    content assets are at risk before traffic drops.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Developed an automated machine learning ranking and content
+                    decay prediction pipeline during my ML Engineering
+                    Internship at FlyRank AI, processing ~79M rows of search
+                    discoverability data using Python, DuckDB, and Hugging Face.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Evaluated content decay risk to guide proactive asset
+                    refreshing and presented the research at Prolog EXPO 2026,
+                    earning 2nd place.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Data 2: Real-Estate Market Monitor -->
+            <article class="card" data-track="data">
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Data &amp; Automation</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="22" r="4" fill="currentColor" />
+                  <circle cx="32" cy="10" r="4" fill="currentColor" opacity="0.75" />
+                  <circle cx="32" cy="34" r="4" fill="currentColor" opacity="0.75" />
+                  <circle cx="52" cy="22" r="4" fill="currentColor" />
+                  <path d="M16 20L28 12M16 24L28 32M36 12L48 20M36 32L48 24M32 14V30" stroke="currentColor" stroke-width="1.5" opacity="0.6" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">End-to-End Pipeline</p>
+                <h3 class="card-title">
+                  Real-Estate Market Monitor: End-to-End Multimodal Data Ingestion and Semantic Search
+                </h3>
+                <p class="card-summary">
                   Built an automated data engineering pipeline that ingests
                   multimodal data (REST APIs, unstructured documents, OCR,
                   audio/video) into MongoDB and MySQL. It features vector
                   embeddings for hybrid semantic search and delivers real-time
                   market insights via a containerized Dash dashboard.
                 </p>
-                <div class="case-tech">
+
+                <div class="card-tags">
                   <span class="tech-tag">Python</span>
                   <span class="tech-tag">SQL</span>
                   <span class="tech-tag">Docker</span>
@@ -502,92 +675,481 @@
                   <span class="tech-tag">Sentence Transformers</span>
                 </div>
               </div>
-              <div class="case-footer">
-                <a
-                  href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="case-link"
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <a
+                    href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
                 >
-                  View Repository &rarr;
-                </a>
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Real-estate market listings arrive across fragmented
+                    modalities—REST APIs, unstructured documents, scanned
+                    images, and audio/video—making unified analysis and semantic
+                    lookup difficult.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Built an automated data engineering pipeline that ingests
+                    multimodal data (REST APIs, unstructured documents, OCR,
+                    audio/video via Faster-Whisper) into MongoDB and MySQL, with
+                    ChromaDB and Sentence Transformers vector embeddings for
+                    hybrid semantic search.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Delivers real-time market insights and hybrid semantic
+                    search through a containerized Dash dashboard orchestrated
+                    with Docker.
+                  </p>
+                </div>
               </div>
             </article>
 
-            <!-- Case 2 -->
-            <article class="case-card">
-              <div class="case-content">
-                <h3 class="case-title">
-                  UNSA Racing Team - Automated Sponsorship Outreach Pipeline
+            <!-- Data 3: UNSA Racing Team Outreach Pipeline -->
+            <article class="card" data-track="data">
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Data &amp; Automation</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle cx="10" cy="22" r="3.5" fill="currentColor" />
+                  <circle cx="28" cy="22" r="3.5" fill="currentColor" opacity="0.8" />
+                  <circle cx="46" cy="12" r="3.5" fill="currentColor" />
+                  <circle cx="46" cy="32" r="3.5" fill="currentColor" opacity="0.65" />
+                  <path d="M14 22H24M31 20L43 13M31 24L43 31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">UNSA Racing Team</p>
+                <h3 class="card-title">
+                  UNSA Racing Team: Automated Sponsorship Outreach Pipeline
                 </h3>
-                <p class="case-description">
+                <p class="card-summary">
                   A lightweight B2B cold email automation system for securing
-                  sponsorships. It leverages a local SQLite state machine, dynamic
-                  CSV ingestion, and the Google Gemini API to programmatically
-                  research, personalize, and sequence outreach emails to Bosnian
-                  companies.
+                  sponsorships. It leverages a local SQLite state machine,
+                  dynamic CSV ingestion, and the Google Gemini API to
+                  programmatically research, personalize, and sequence outreach
+                  emails to Bosnian companies.
                 </p>
-                <div class="case-tech">
+
+                <div class="card-tags">
                   <span class="tech-tag">Python</span>
                   <span class="tech-tag">SQLite</span>
                   <span class="tech-tag">Google Gemini API</span>
                   <span class="tech-tag">SMTP</span>
                 </div>
               </div>
-              <div class="case-footer">
-                <a
-                  href="https://github.com/sorgerator/unsa_rt_outreach_pipeline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="case-link"
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <a
+                    href="https://github.com/sorgerator/unsa_rt_outreach_pipeline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
                 >
-                  View Repository &rarr;
-                </a>
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Manual B2B sponsorship prospecting and follow-up tracking
+                    for a university Formula Student team was time-consuming and
+                    error-prone.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Engineered a lightweight B2B cold email automation system
+                    using Python, a local SQLite state machine, dynamic CSV
+                    ingestion, SMTP delivery, and the Google Gemini API.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Programmatically researches, personalizes, and sequences
+                    sponsorship outreach emails to Bosnian companies with
+                    deterministic state tracking.
+                  </p>
+                </div>
               </div>
             </article>
 
-            <!-- Case 3 -->
-            <article class="case-card">
-              <div class="case-content">
-                <h3 class="case-title">
-                  FlyRank Capstone Project: Applied Search Intelligence &amp;
-                  Ranking Models
+            <!-- ==============================================================
+                 SOFTWARE TRACK (4 Cards — hidden on initial Data tab)
+                 ============================================================== -->
+
+            <!-- Software 1: FastLane Sarajevo (Featured) -->
+            <article class="card featured" data-track="software" hidden>
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Software</span>
+                  <span class="featured-badge">Featured</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M18 12L8 22L18 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M46 12L56 22L46 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M36 8L28 36" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">2025 · IBU Frontend Web Capstone</p>
+                <h3 class="card-title">
+                  FastLane Sarajevo: Tire Shop &amp; Auto Service Web Application
                 </h3>
-                <p class="case-description">
-                  The flagship capstone research and engineering project developed
-                  during the Machine Learning Internship at FlyRank AI. Built and
-                  evaluated machine learning ranking models and data pipelines
-                  across ~79M rows of search discoverability data, analyzing query
-                  intent and organic visibility dynamics.
+                <p class="card-summary">
+                  A mobile-first, bilingual (Bosnian &amp; English) 7-page web
+                  application with Bright &amp; Dark mode built for FastLane
+                  Sarajevo. Features an instant service price estimator,
+                  interactive cost calculator, live shop status indicator, and
+                  local-storage appointment manager.
                 </p>
-                <div class="case-tech">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Machine Learning</span>
-                  <span class="tech-tag">DuckDB</span>
-                  <span class="tech-tag">Hugging Face</span>
-                  <span class="tech-tag">Search Intelligence</span>
-                  <span class="tech-tag">FlyRank AI</span>
+
+                <div class="card-metrics" aria-label="Project metrics">
+                  <span class="metric-chip">7 pages</span>
+                  <span class="metric-chip">Bilingual (BS/EN)</span>
+                </div>
+
+                <div class="card-tags">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">Tailwind CSS</span>
+                  <span class="tech-tag">JavaScript (ES6+)</span>
                 </div>
               </div>
-              <div class="case-footer">
-                <a
-                  href="https://github.com/sorgerator/flyrank-internship"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="case-link"
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <!-- TODO: Add repository or live site link if public -->
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
                 >
-                  View Repository &rarr;
-                </a>
-                <a
-                  href="https://sorgerator.github.io/flyrank-internship/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="case-link"
-                >
-                  View Paper &rarr;
-                </a>
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Local auto service and tire workshops need a fast,
+                    mobile-first bilingual digital presence where drivers can
+                    estimate rim/service pricing, check live operating status,
+                    and manage bookings without page reloads.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Built a 7-page web application using semantic HTML5, CSS3
+                    custom properties, Tailwind CSS, and Vanilla JavaScript
+                    (ES6+) featuring a zero-reload Bosnian/English switcher,
+                    persistent Bright/Dark mode, an Instant Service Price
+                    Estimator, an Interactive Cost Calculator, and a
+                    LocalStorage Appointment Manager with reference codes.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Delivered a complete bilingual frontend capstone covering
+                    Home, Services, Appointments, Location (with live Sarajevo
+                    hours and embedded maps), About, Contact, and ZZLP/GDPR
+                    Privacy pages.
+                  </p>
+                </div>
               </div>
             </article>
+
+            <!-- Software 2: FilmFolio Android App -->
+            <article class="card" data-track="software" hidden>
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Software</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect x="20" y="4" width="24" height="36" rx="4" stroke="currentColor" stroke-width="2" />
+                  <line x1="28" y1="35" x2="36" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <rect x="24" y="10" width="16" height="10" rx="1.5" fill="currentColor" opacity="0.35" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">Mobile Programming Project</p>
+                <h3 class="card-title">
+                  FilmFolio: Native Android Movie Watchlist &amp; Rating App
+                </h3>
+                <p class="card-summary">
+                  A native Android application developed for tracking movies to
+                  watch and rating watched content, built with modern
+                  declarative UI and local database persistence.
+                </p>
+
+                <div class="card-tags">
+                  <span class="tech-tag">Kotlin</span>
+                  <span class="tech-tag">Jetpack Compose</span>
+                  <span class="tech-tag">Room DB</span>
+                  <span class="tech-tag">Android</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <!-- TODO: Add repository link if public -->
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
+                >
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Movie enthusiasts need a clean, offline-ready mobile app to
+                    organize their watchlist and rate films they have watched.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Developed FilmFolio as a native Android mobile application
+                    using Kotlin, Jetpack Compose, and Room DB for structured
+                    local storage.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Provides a responsive native Android interface for managing
+                    to-watch lists and logging personal ratings.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Software 3: Creative Shock 2026 Hackathon -->
+            <article class="card" data-track="software" hidden>
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Software</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <polygon points="32,6 38,18 52,20 42,29 44,42 32,35 20,42 22,29 12,20 26,18" stroke="currentColor" stroke-width="1.8" fill="currentColor" fill-opacity="0.2" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">2026 · Wild Cards Team</p>
+                <h3 class="card-title">
+                  Creative Shock 2026 Hackathon — Top-10 Finalist
+                </h3>
+                <p class="card-summary">
+                  Placed in the Top 10 internationally with the Wild Cards team
+                  in the Creative Shock 2026 competition, currently preparing
+                  for the grand finals taking place November 18–21 in Vilnius,
+                  Lithuania.
+                </p>
+
+                <div class="card-metrics" aria-label="Project metrics">
+                  <span class="metric-chip">Top-10 finalist</span>
+                  <span class="metric-chip">Nov 18–21 Vilnius Finals</span>
+                </div>
+
+                <div class="card-tags">
+                  <span class="tech-tag">Hackathon</span>
+                  <span class="tech-tag">Wild Cards Team</span>
+                  <span class="tech-tag">Product &amp; Tech</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <!-- TODO: Add project link after Vilnius grand finals -->
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
+                >
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Tackling real-world social business, technology, and
+                    strategic case challenges under tight international
+                    competition deadlines.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Collaborated with the Wild Cards team during the Creative
+                    Shock 2026 preliminary rounds to qualify among the top 10
+                    teams globally.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Selected as a Top-10 Finalist and currently preparing for
+                    the live Grand Finals in Vilnius, Lithuania (November 18–21,
+                    2026).
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Software 4: OmniFood Web App -->
+            <article class="card" data-track="software" hidden>
+              <div class="card-visual">
+                <div class="card-badges">
+                  <span class="track-badge">Software</span>
+                </div>
+                <svg
+                  class="card-pattern-svg"
+                  viewBox="0 0 64 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect x="8" y="8" width="48" height="28" rx="3" stroke="currentColor" stroke-width="1.8" />
+                  <line x1="8" y1="15" x2="56" y2="15" stroke="currentColor" stroke-width="1.5" opacity="0.6" />
+                  <rect x="14" y="20" width="16" height="10" rx="1.5" fill="currentColor" opacity="0.35" />
+                  <rect x="34" y="20" width="16" height="4" rx="1" fill="currentColor" opacity="0.55" />
+                  <rect x="34" y="26" width="10" height="4" rx="1" fill="currentColor" opacity="0.35" />
+                </svg>
+              </div>
+
+              <div class="card-body">
+                <p class="card-period">2025 · Frontend Development</p>
+                <h3 class="card-title">
+                  OmniFood: Responsive Web Application
+                </h3>
+                <p class="card-summary">
+                  Responsive web application built with semantic HTML5 and
+                  modern CSS3 layouts as part of Jonas Schmedtmann's HTML5 and
+                  CSS3 curriculum.
+                </p>
+
+                <div class="card-tags">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">Responsive Design</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <div class="card-links">
+                  <!-- TODO: Add live site or repository link if public -->
+                </div>
+                <button
+                  type="button"
+                  class="card-details-btn"
+                  aria-haspopup="dialog"
+                >
+                  Details
+                </button>
+              </div>
+
+              <div class="card-details" hidden>
+                <div class="detail-block">
+                  <h4>Problem</h4>
+                  <p>
+                    Crafting a responsive, accessible modern landing page and
+                    web application layout from scratch using pure HTML5 and
+                    CSS3 without UI frameworks.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>What I Built</h4>
+                  <p>
+                    Built the OmniFood web application implementing CSS Grid,
+                    Flexbox, responsive fluid typography, and mobile-first
+                    breakpoints.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Result</h4>
+                  <p>
+                    Established a clean, responsive frontend architecture across
+                    desktop, tablet, and mobile viewports.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Empty state container (hidden when track has visible cards) -->
+          <div id="casesEmptyState" class="cases-empty" hidden>
+            Software projects are being added.
           </div>
         </div>
       </section>

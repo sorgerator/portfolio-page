@@ -3,6 +3,7 @@ import { initTheme } from "./theme.js";
 import { initNav } from "./nav.js";
 import { initRouter } from "./router.js";
 import { initHeroCanvas } from "./hero-canvas.js";
+import { initCaseStudies } from "./case-studies.js";
 
 /**
  * Application entry point.
@@ -10,6 +11,7 @@ import { initHeroCanvas } from "./hero-canvas.js";
 function bootstrap() {
   initTheme();
   initNav();
+  initCaseStudies();
   initRouter();
   initHeroCanvas();
 }
