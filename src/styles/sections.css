@@ -3,56 +3,363 @@
    ========================================================================== */
 
 /* ==========================================================================
-   1. HERO SECTION
+   1. HERO SECTION & TECH TICKER
    ========================================================================== */
 .hero {
-  min-height: 100vh;
-  min-height: 100dvh;
+  position: relative;
+  min-height: 92vh;
+  min-height: 92dvh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 7rem 1.5rem 4rem;
+  padding: 7.5rem 1.5rem 4.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 1;
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 
+.hero-copy {
+  grid-column: 1 / -1;
+  max-width: 960px;
+}
+
+.hero-container:has(.hero-photo-slot:not([hidden])) .hero-copy {
+  grid-column: 1 / span 8;
+}
+
+.hero-photo-slot {
+  grid-column: 9 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-photo-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Status Chip with Pulsing Dot */
+.hero-top-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--fg);
+  background-color: var(--surface);
+  border: 1px solid var(--border-strong);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card);
+}
+
+.status-pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  flex-shrink: 0;
+}
+
+.status-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #10B981;
+  opacity: 0.6;
+  animation: statusPulse 2.2s infinite ease-out;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* Huge Hero H1 + Rotating Role Line */
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(3.25rem, 10vw, 8.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
   color: var(--fg);
   margin-bottom: 1rem;
+  outline: none;
 }
 
-.hero-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
+.hero-role {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3.2vw, 2.25rem);
   font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--fg-muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.hero-role-prefix {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.hero-role-rotator {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--red) 0%, #FB7185 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.hero-role-rotator.is-switching {
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 .hero-description {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
   color: var(--fg-muted);
-  max-width: 640px;
+  max-width: 680px;
   margin-bottom: 2.25rem;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hero-cv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding: 0.65rem 0.85rem;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-cv-link:hover {
+  color: var(--red);
+  transform: translateX(2px);
+}
+
+/* Proof Strip */
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.proof-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+
+.proof-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--red);
+  flex-shrink: 0;
+}
+
+.proof-item strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* Tech Ticker Strip (CSS Marquee under Hero) */
+.tech-ticker {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+}
+
+.tech-ticker::before,
+.tech-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-elev), transparent);
+}
+
+.tech-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-elev), transparent);
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  padding-right: 2.25rem;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: tickerMarquee 32s linear infinite;
+}
+
+.tech-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.ticker-item::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--red);
+  opacity: 0.75;
+}
+
+@keyframes tickerMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-pulse::after {
+    animation: none;
+    display: none;
+  }
+
+  .ticker-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.75rem;
+    padding-inline: 1.5rem;
+  }
+
+  .ticker-track[aria-hidden="true"] {
+    display: none;
+  }
+}
+
 /* ==========================================================================
-   2. ABOUT SECTION
+   2. ABOUT SECTION (TWO COLUMNS: BIO + TIMELINE LEFT, FACTS + SKILLS RIGHT)
    ========================================================================== */
 .about {
   padding: var(--section-pad-y) var(--section-pad-x);
   background-color: var(--bg);
   scroll-margin-top: 5.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .about-container {
@@ -60,23 +367,73 @@
   margin: 0 auto;
 }
 
-.about-card {
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-left {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-right {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-card,
+.facts-card,
+.skills-card,
+.timeline-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 2.5rem;
+  padding: 2rem;
   box-shadow: var(--shadow-card);
 }
 
-.about-text {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--fg);
-  margin-bottom: 1.5rem;
+.panel-heading {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.about-text:last-child {
+.panel-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+  margin-left: 0.85rem;
+}
+
+.about-text {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.about-text:last-of-type {
   margin-bottom: 0;
+}
+
+.about-text strong {
+  color: var(--fg);
+  font-weight: 600;
 }
 
 .about-actions {
@@ -86,6 +443,133 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Facts Panel (Monospace Rows) */
+.facts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.fact-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.75rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  line-height: 1.5;
+}
+
+.fact-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.fact-label {
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  padding-top: 0.1rem;
+}
+
+.fact-value {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* Grouped Skill Tag Clusters */
+.skill-clusters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skill-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* Compact Timeline (4 items) */
+.timeline-list {
+  list-style: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border-strong);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 4.5px);
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--red);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.timeline-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-role {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.timeline-org {
+  font-size: 0.925rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .hero-container:has(.hero-photo-slot:not([hidden])) .hero-copy,
+  .hero-photo-slot,
+  .about-left,
+  .about-right {
+    grid-column: 1 / -1;
+  }
+
+  .hero-photo-slot {
+    justify-content: flex-start;
+  }
 }
 
 /* ==========================================================================

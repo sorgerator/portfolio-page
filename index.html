@@ -185,71 +185,286 @@
     <main id="home-view">
       <!-- 1. Hero Section -->
       <section class="hero" id="hero">
+        <canvas
+          id="heroCanvas"
+          class="hero-canvas"
+          aria-hidden="true"
+        ></canvas>
+
         <div class="hero-container">
-          <h1 class="hero-title" tabindex="-1">Hi, I'm Tarik Sorguč</h1>
-          <p class="hero-subtitle">
-            Data Science &amp; AI Engineering | Former ML Engineer Intern at FlyRank AI
-          </p>
-          <p class="hero-description">
-            I engineer robust data pipelines that turn unstructured data into
-            production-ready inputs for ML models.
-          </p>
-          <div class="hero-actions">
-            <a href="/#work" class="btn-primary">View My Work</a>
+          <div class="hero-copy">
+            <div class="hero-top-meta">
+              <div class="status-chip">
+                <span class="status-pulse" aria-hidden="true"></span>
+                <span>Open to internships, junior roles &amp; contract work</span>
+              </div>
+              <span class="hero-eyebrow">Data Science &amp; AI Engineering · Sarajevo</span>
+            </div>
+
+            <h1 class="hero-title" tabindex="-1">Tarik Sorguč</h1>
+
+            <p class="hero-role" aria-live="polite">
+              <span class="hero-role-prefix" aria-hidden="true">&gt;</span>
+              <span id="heroRoleText" class="hero-role-rotator">builds data pipelines</span>
+            </p>
+
+            <p class="hero-description">
+              I engineer robust data pipelines that turn unstructured data into
+              production-ready inputs for ML models. I also design and ship
+              fast, accessible web and mobile applications from the ground up.
+            </p>
+
+            <div class="hero-actions">
+              <a href="/#work" class="btn-primary">View my work</a>
+              <a href="/#contact" class="btn-secondary">Let's talk</a>
+              <a
+                href="/assets/Tarik_Sorguc_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-cv-link"
+              >
+                CV &nearr;
+              </a>
+            </div>
+
+            <ul class="proof-strip" aria-label="Highlights">
+              <li class="proof-item">
+                <span class="proof-dot" aria-hidden="true"></span>
+                <span><strong>2nd place</strong>, Prolog EXPO 2026</span>
+              </li>
+              <li class="proof-item">
+                <span class="proof-dot" aria-hidden="true"></span>
+                <span><strong>Top-10 finalist</strong>, Creative Shock 2026</span>
+              </li>
+              <li class="proof-item">
+                <span class="proof-dot" aria-hidden="true"></span>
+                <span><strong>ML Engineer Intern</strong>, FlyRank AI</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Optional Photo Slot (TODO: Remove `hidden` once /assets/img/me.webp is provided) -->
+          <div class="hero-photo-slot" hidden>
+            <div class="hero-photo-frame">
+              <img
+                src="/assets/img/me.webp"
+                alt="Portrait of Tarik Sorguč"
+                width="320"
+                height="400"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- Tech Ticker Strip (CSS-Only Marquee) -->
+      <div class="tech-ticker" aria-label="Technologies and tools">
+        <div class="ticker-track">
+          <span class="ticker-item">Python</span>
+          <span class="ticker-item">SQL</span>
+          <span class="ticker-item">DuckDB</span>
+          <span class="ticker-item">Pandas</span>
+          <span class="ticker-item">ChromaDB</span>
+          <span class="ticker-item">Kotlin</span>
+          <span class="ticker-item">Jetpack Compose</span>
+          <span class="ticker-item">React</span>
+          <span class="ticker-item">TypeScript</span>
+          <span class="ticker-item">Node.js</span>
+          <span class="ticker-item">Firebase</span>
+          <span class="ticker-item">PostgreSQL</span>
+          <span class="ticker-item">Docker</span>
+        </div>
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item">Python</span>
+          <span class="ticker-item">SQL</span>
+          <span class="ticker-item">DuckDB</span>
+          <span class="ticker-item">Pandas</span>
+          <span class="ticker-item">ChromaDB</span>
+          <span class="ticker-item">Kotlin</span>
+          <span class="ticker-item">Jetpack Compose</span>
+          <span class="ticker-item">React</span>
+          <span class="ticker-item">TypeScript</span>
+          <span class="ticker-item">Node.js</span>
+          <span class="ticker-item">Firebase</span>
+          <span class="ticker-item">PostgreSQL</span>
+          <span class="ticker-item">Docker</span>
+        </div>
+      </div>
 
       <!-- 2. About Section -->
       <section id="about" class="about">
         <div class="about-container">
           <p class="eyebrow mono">01 / About</p>
           <h2 class="section-title">About Me</h2>
-          <div class="about-card">
-            <p class="about-text">
-              I am a final-year IT Engineering student majoring in Data Science at
-              International Burch University in Sarajevo. I specialize in building
-              intelligent systems, data engineering pipelines, and agentic
-              workflows.
-            </p>
-            <p class="about-text">
-              Previously, I worked as a Machine Learning Engineer Intern at FlyRank AI
-              (July–September 2026), where my capstone research on content decay
-              prediction won 2nd place at Prolog EXPO.
-            </p>
-            <p class="about-text">
-              Beyond the screen, I am a former member of the Bosnian national
-              Latin dance team and currently coach Latin and ballroom dances at
-              SPK Bolero Sarajevo. I am also an aviation and space geek, and I
-              love spending my downtime skiing and hiking.
-            </p>
-            <div class="about-actions">
-              <a
-                href="/assets/Tarik_Sorguc_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-secondary"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                  ></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                View CV
-              </a>
+
+          <div class="about-grid">
+            <!-- Left Column: Bio + Compact Timeline -->
+            <div class="about-left">
+              <div class="about-card">
+                <p class="panel-heading">Background</p>
+                <p class="about-text">
+                  I'm a final-year IT Engineering student majoring in
+                  <strong>Data Science and AI</strong> at International Burch
+                  University in Sarajevo. I focus on building intelligent
+                  systems, end-to-end data engineering pipelines, and agentic
+                  workflows—alongside fast, well-crafted web and mobile
+                  applications.
+                </p>
+                <p class="about-text">
+                  From July to September 2026, I worked as a
+                  <strong>Machine Learning Engineer Intern at FlyRank AI</strong>,
+                  where I built and evaluated ranking models and content decay
+                  prediction pipelines across ~79M rows of search
+                  discoverability data—earning <strong>2nd place at Prolog EXPO</strong>.
+                </p>
+                <p class="about-text">
+                  Beyond the screen, I am a former member of the Bosnian
+                  national Latin dance team and coach Latin and ballroom dance
+                  at <strong>SPK Bolero Sarajevo</strong>. I'm also an aviation
+                  and space geek who spends downtime skiing and hiking.
+                </p>
+                <div class="about-actions">
+                  <a
+                    href="/assets/Tarik_Sorguc_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-secondary"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    View CV
+                  </a>
+                </div>
+              </div>
+
+              <!-- Compact Timeline (4 items) -->
+              <div class="timeline-card">
+                <p class="panel-heading">Experience &amp; Milestones</p>
+                <ol class="timeline-list">
+                  <li class="timeline-item">
+                    <div class="timeline-header">
+                      <span class="timeline-role">ML Engineer Intern · FlyRank AI</span>
+                      <span class="timeline-period">Jul – Sep 2026</span>
+                    </div>
+                    <p class="timeline-org">
+                      Built content decay prediction &amp; search ranking pipelines (~79M rows); 2nd place at Prolog EXPO.
+                    </p>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-header">
+                      <span class="timeline-role">General Secretary &amp; Team Lead · UNSA Racing Team</span>
+                      <span class="timeline-period">Aug 2024 – Present</span>
+                    </div>
+                    <p class="timeline-org">
+                      Leading operations, B2B sponsorship strategy, and engineering coordination for the university Formula Student team.
+                    </p>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-header">
+                      <span class="timeline-role">Freelance Front-End Developer</span>
+                      <span class="timeline-period">Jun – Oct 2025</span>
+                    </div>
+                    <p class="timeline-org">
+                      Designed and shipped responsive production front-ends for client web projects.
+                    </p>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-header">
+                      <span class="timeline-role">National Team Athlete · WDSF Latin Dance</span>
+                      <span class="timeline-period">2021 – 2024</span>
+                    </div>
+                    <p class="timeline-org">
+                      Three-time Bosnian vice-champion; represented Bosnia &amp; Herzegovina at three World Championships and one European Championship.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Right Column: Facts Panel + Grouped Skills Tag Clusters -->
+            <div class="about-right">
+              <div class="facts-card">
+                <p class="panel-heading">Quick Facts</p>
+                <div class="facts-list">
+                  <div class="fact-row">
+                    <span class="fact-label">Location</span>
+                    <span class="fact-value">Sarajevo, BiH</span>
+                  </div>
+                  <div class="fact-row">
+                    <span class="fact-label">Studying</span>
+                    <span class="fact-value">BSc IT (Data Science &amp; AI), IBU · Class of 2027 · GPA 8.75/10</span>
+                  </div>
+                  <div class="fact-row">
+                    <span class="fact-label">Languages</span>
+                    <span class="fact-value">Bosnian (native) · English (C1) · German (A2)</span>
+                  </div>
+                  <div class="fact-row">
+                    <span class="fact-label">Leadership</span>
+                    <span class="fact-value">General Secretary &amp; Team Lead, UNSA Racing Team</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills-card">
+                <p class="panel-heading">Technical Stack</p>
+                <div class="skill-clusters">
+                  <div class="skill-group">
+                    <p class="skill-group-title">Data &amp; AI</p>
+                    <div class="skill-tags">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">SQL</span>
+                      <span class="tech-tag">DuckDB</span>
+                      <span class="tech-tag">Pandas</span>
+                      <span class="tech-tag">NumPy</span>
+                      <span class="tech-tag">ChromaDB</span>
+                      <span class="tech-tag">Pyomo</span>
+                    </div>
+                  </div>
+
+                  <div class="skill-group">
+                    <p class="skill-group-title">Web &amp; Mobile</p>
+                    <div class="skill-tags">
+                      <span class="tech-tag">Kotlin</span>
+                      <span class="tech-tag">Jetpack Compose</span>
+                      <span class="tech-tag">React</span>
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">Node.js</span>
+                      <span class="tech-tag">Tailwind CSS</span>
+                      <span class="tech-tag">Room DB</span>
+                      <span class="tech-tag">SQLite</span>
+                      <span class="tech-tag">PostgreSQL</span>
+                      <span class="tech-tag">Firebase</span>
+                      <span class="tech-tag">Git</span>
+                    </div>
+                  </div>
+
+                  <div class="skill-group">
+                    <p class="skill-group-title">Engineering</p>
+                    <div class="skill-tags">
+                      <span class="tech-tag">Agile workflows</span>
+                      <span class="tech-tag">Data pipelines</span>
+                      <span class="tech-tag">B2B pitching</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
