@@ -679,12 +679,20 @@
               <div class="card-footer">
                 <div class="card-links">
                   <a
-                    href="https://github.com/sorgerator/Real-Estate-Market-Monitor.git"
+                    href="https://github.com/sorgerator/Real-Estate-Market-Monitor"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="case-link"
                   >
                     View Repository &rarr;
+                  </a>
+                  <a
+                    href="https://gilded-piroshki-c37cae.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    Live site &rarr;
                   </a>
                 </div>
                 <button
@@ -771,12 +779,20 @@
               <div class="card-footer">
                 <div class="card-links">
                   <a
-                    href="https://github.com/sorgerator/unsa_rt_outreach_pipeline"
+                    href="https://github.com/sorgerator/unsa-racing-portal"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="case-link"
                   >
                     View Repository &rarr;
+                  </a>
+                  <a
+                    href="https://unsa-racing-portal.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    Live site &rarr;
                   </a>
                 </div>
                 <button
@@ -867,7 +883,22 @@
 
               <div class="card-footer">
                 <div class="card-links">
-                  <!-- TODO: Add repository or live site link if public -->
+                  <a
+                    href="https://github.com/sorgerator/FastLane"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
+                  <a
+                    href="https://fastlane-tsorguc.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    Live site &rarr;
+                  </a>
                 </div>
                 <button
                   type="button"
@@ -950,7 +981,14 @@
 
               <div class="card-footer">
                 <div class="card-links">
-                  <!-- TODO: Add repository link if public -->
+                  <a
+                    href="https://github.com/sorgerator/Movie-Watchlist-App"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
                 </div>
                 <button
                   type="button"
@@ -1108,7 +1146,22 @@
 
               <div class="card-footer">
                 <div class="card-links">
-                  <!-- TODO: Add live site or repository link if public -->
+                  <a
+                    href="https://github.com/sorgerator/OmniFood"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    View Repository &rarr;
+                  </a>
+                  <a
+                    href="https://omnifood-tsorguc.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="case-link"
+                  >
+                    Live site &rarr;
+                  </a>
                 </div>
                 <button
                   type="button"
@@ -1151,6 +1204,66 @@
           <div id="casesEmptyState" class="cases-empty" hidden>
             Software projects are being added.
           </div>
+
+          <!-- Native Case Study Details Dialog (Phase 5) -->
+          <dialog
+            id="caseDialog"
+            class="case-dialog"
+            aria-labelledby="caseDialogTitle"
+          >
+            <div class="case-dialog-inner">
+              <div class="case-dialog-header">
+                <div class="case-dialog-meta">
+                  <span id="caseDialogTrack" class="track-badge"></span>
+                  <span id="caseDialogPeriod" class="card-period"></span>
+                </div>
+                <button
+                  type="button"
+                  id="caseDialogClose"
+                  class="case-dialog-close"
+                  aria-label="Close project details"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <h3 id="caseDialogTitle" class="case-dialog-title"></h3>
+
+              <div
+                id="caseDialogMetrics"
+                class="card-metrics"
+                hidden
+              ></div>
+
+              <div id="caseDialogBody" class="case-dialog-body"></div>
+
+              <div id="caseDialogTags" class="card-tags"></div>
+
+              <div id="caseDialogFooter" class="case-dialog-footer">
+                <div id="caseDialogLinks" class="card-links"></div>
+                <button
+                  type="button"
+                  id="caseDialogDoneBtn"
+                  class="btn-secondary"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </dialog>
         </div>
       </section>
 

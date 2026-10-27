@@ -750,6 +750,45 @@
     background-color 0.25s ease;
 }
 
+/* Pointer-Tracking Radial Spotlight Effect (Phase 5) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    var(--cyan-subtle),
+    transparent 65%
+  );
+}
+
+.card[data-track="software"]::before {
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    var(--red-subtle),
+    transparent 65%
+  );
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before {
+    display: none;
+  }
+}
+
 .card.featured {
   grid-column: span 2;
 }
@@ -1020,6 +1059,124 @@
   font-family: var(--font-mono);
   font-size: 0.95rem;
   color: var(--fg-muted);
+}
+
+/* Native <dialog> for Case Study Details (Phase 5) */
+.case-dialog {
+  margin: auto;
+  padding: 0;
+  width: min(680px, calc(100vw - 2rem));
+  max-height: calc(100vh - 3rem);
+  max-height: calc(100dvh - 3rem);
+  background-color: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--track-accent);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-hover);
+  overflow-y: auto;
+}
+
+.case-dialog::backdrop {
+  background-color: var(--backdrop-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.case-dialog-inner {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.case-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.case-dialog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.case-dialog-meta .card-period {
+  margin-bottom: 0;
+}
+
+.case-dialog-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-color: var(--bg-elev);
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.case-dialog-close:hover {
+  color: var(--fg);
+  border-color: var(--track-accent);
+}
+
+.case-dialog-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--fg);
+}
+
+.case-dialog .card-metrics {
+  margin-bottom: 0;
+}
+
+.case-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.25rem;
+  background-color: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.detail-block h4 {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--track-accent);
+  margin-bottom: 0.35rem;
+}
+
+.detail-block p {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--fg);
+}
+
+.case-dialog-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 960px) {

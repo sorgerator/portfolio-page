@@ -39,8 +39,171 @@ function syncTrackToUrl(track) {
 }
 
 /**
+ * Attaches the pointer-tracking radial spotlight effect (`--mx`, `--my`) to each project card.
+ * Disabled automatically when `prefers-reduced-motion: reduce` is active.
+ * @param {NodeListOf<HTMLElement>} cards
+ */
+function initCardSpotlight(cards) {
+  const reducedMotionQuery = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : null;
+
+  cards.forEach((card) => {
+    card.addEventListener(
+      "pointermove",
+      (e) => {
+        if (reducedMotionQuery && reducedMotionQuery.matches) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mx", `${x.toFixed(1)}px`);
+        card.style.setProperty("--my", `${y.toFixed(1)}px`);
+      },
+      { passive: true },
+    );
+  });
+}
+
+/**
+ * Initializes the native `<dialog>` detail view for project cards.
+ * @param {NodeListOf<HTMLElement>} cards
+ */
+function initCaseDialog(cards) {
+  const dialog = /** @type {HTMLDialogElement | null} */ (
+    document.getElementById("caseDialog")
+  );
+  if (!dialog) return;
+
+  const trackEl = document.getElementById("caseDialogTrack");
+  const periodEl = document.getElementById("caseDialogPeriod");
+  const titleEl = document.getElementById("caseDialogTitle");
+  const metricsEl = document.getElementById("caseDialogMetrics");
+  const bodyEl = document.getElementById("caseDialogBody");
+  const tagsEl = document.getElementById("caseDialogTags");
+  const linksEl = document.getElementById("caseDialogLinks");
+  const closeBtn = document.getElementById("caseDialogClose");
+  const doneBtn = document.getElementById("caseDialogDoneBtn");
+
+  /** @type {HTMLElement | null} */
+  let lastTriggerBtn = null;
+
+  /**
+   * Populates and opens the native `<dialog>` from a given card element.
+   * @param {HTMLElement} card
+   * @param {HTMLElement} triggerBtn
+   */
+  function openDialogForCard(card, triggerBtn) {
+    if (!dialog) return;
+    lastTriggerBtn = triggerBtn;
+
+    const cardTrack = card.getAttribute("data-track") || "data";
+    dialog.setAttribute("data-track", cardTrack);
+
+    const badge = card.querySelector(".track-badge");
+    if (trackEl) {
+      trackEl.textContent = badge ? badge.textContent || "" : "";
+    }
+
+    const period = card.querySelector(".card-period");
+    if (periodEl) {
+      periodEl.textContent = period ? period.textContent || "" : "";
+    }
+
+    const title = card.querySelector(".card-title");
+    if (titleEl) {
+      titleEl.textContent = title ? (title.textContent || "").trim() : "";
+    }
+
+    const metrics = card.querySelector(".card-metrics");
+    if (metricsEl) {
+      if (metrics && metrics.innerHTML.trim()) {
+        metricsEl.innerHTML = metrics.innerHTML;
+        metricsEl.hidden = false;
+      } else {
+        metricsEl.innerHTML = "";
+        metricsEl.hidden = true;
+      }
+    }
+
+    const details = card.querySelector(".card-details");
+    if (bodyEl) {
+      if (details) {
+        bodyEl.innerHTML = details.innerHTML;
+      } else {
+        const summary = card.querySelector(".card-summary");
+        bodyEl.innerHTML = summary ? `<p>${summary.innerHTML}</p>` : "";
+      }
+    }
+
+    const tags = card.querySelector(".card-tags");
+    if (tagsEl) {
+      tagsEl.innerHTML = tags ? tags.innerHTML : "";
+    }
+
+    const links = card.querySelector(".card-links");
+    if (linksEl) {
+      linksEl.innerHTML = links ? links.innerHTML : "";
+    }
+
+    document.body.classList.add("modal-open");
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute("open", "");
+    }
+  }
+
+  /**
+   * Closes the native `<dialog>`.
+   */
+  function closeDialog() {
+    if (!dialog) return;
+    if (typeof dialog.close === "function" && dialog.open) {
+      dialog.close();
+    } else {
+      dialog.removeAttribute("open");
+      document.body.classList.remove("modal-open");
+      if (lastTriggerBtn) lastTriggerBtn.focus();
+    }
+  }
+
+  dialog.addEventListener("close", () => {
+    document.body.classList.remove("modal-open");
+    if (lastTriggerBtn) {
+      lastTriggerBtn.focus();
+    }
+  });
+
+  // Close when clicking the backdrop area outside `.case-dialog-inner`
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      closeDialog();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeDialog);
+  }
+
+  if (doneBtn) {
+    doneBtn.addEventListener("click", closeDialog);
+  }
+
+  cards.forEach((card) => {
+    const detailsBtn = /** @type {HTMLElement | null} */ (
+      card.querySelector(".card-details-btn")
+    );
+    if (detailsBtn) {
+      detailsBtn.addEventListener("click", () => {
+        openDialogForCard(card, detailsBtn);
+      });
+    }
+  });
+}
+
+/**
  * Initializes the Case Studies segmented control, card counts, track filtering,
- * staggered reveal animation, and URL query synchronization.
+ * staggered reveal animation, URL query synchronization, card spotlight, and `<dialog>`.
  */
 export function initCaseStudies() {
   const section = document.getElementById("work");
@@ -56,6 +219,10 @@ export function initCaseStudies() {
   const emptyState = /** @type {HTMLElement | null} */ (
     document.getElementById("casesEmptyState")
   );
+
+  // Initialize Phase 5 spotlight and native `<dialog>`
+  initCardSpotlight(cards);
+  initCaseDialog(cards);
 
   if (!tablist || tabs.length === 0) return;
 
@@ -90,6 +257,14 @@ export function initCaseStudies() {
     if (!section) return;
     section.setAttribute("data-track", track);
 
+    const grid = document.getElementById("casesGrid");
+    if (grid) {
+      grid.setAttribute(
+        "aria-labelledby",
+        track === "software" ? "tab-software" : "tab-data",
+      );
+    }
+
     tabs.forEach((tab) => {
       const tabTrack = tab.getAttribute("data-track-tab");
       const isSelected = tabTrack === track;
@@ -112,7 +287,6 @@ export function initCaseStudies() {
         card.style.setProperty("--stagger-index", String(visibleIndex));
         if (animate) {
           card.classList.remove("is-entering");
-          // Force reflow to restart CSS stagger animation cleanly
           void card.offsetWidth;
           card.classList.add("is-entering");
         }
