@@ -1,4 +1,4 @@
-// Contact Modal
+// Legacy Contact Modal & Calendar handlers (will be ported to src/contact.js in Phase 6)
 function openContactModal() {
   const modal = document.getElementById("contact-modal");
   if (!modal) return;
@@ -126,55 +126,3 @@ function toggleCalendar(e) {
     }, 100);
   }
 }
-
-// Mobile Navigation Toggle
-const navToggle = document.getElementById("navToggle");
-const navLinks = document.getElementById("navLinks");
-
-function toggleNavMenu(forceState) {
-  if (!navToggle || !navLinks) return;
-  const shouldOpen =
-    forceState !== undefined
-      ? forceState
-      : !navLinks.classList.contains("open");
-  navToggle.classList.toggle("open", shouldOpen);
-  navLinks.classList.toggle("open", shouldOpen);
-  navToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
-}
-
-if (navToggle) {
-  navToggle.addEventListener("click", function (e) {
-    e.stopPropagation();
-    toggleNavMenu();
-  });
-}
-
-// Close menu when any link inside navLinks is clicked
-if (navLinks) {
-  navLinks.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      toggleNavMenu(false);
-    });
-  });
-}
-
-// Close menu when clicking outside navbar
-document.addEventListener("click", function (e) {
-  if (navLinks && navLinks.classList.contains("open")) {
-    const navbar = document.getElementById("navbar");
-    if (navbar && !navbar.contains(e.target)) {
-      toggleNavMenu(false);
-    }
-  }
-});
-
-// Close mobile dropdown when resizing beyond Mobile L (425px)
-window.addEventListener("resize", function () {
-  if (
-    window.innerWidth > 425 &&
-    navLinks &&
-    navLinks.classList.contains("open")
-  ) {
-    toggleNavMenu(false);
-  }
-});

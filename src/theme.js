@@ -3,8 +3,8 @@
 const STORAGE_KEY = "ts-theme";
 
 /**
- * Resolves the initial theme: saved user preference first,
- * then OS color-scheme preference, defaulting to "dark".
+ * Resolves the active theme: saved user preference in localStorage if present,
+ * otherwise always defaults to "dark".
  * @returns {"dark" | "light"}
  */
 export function getActiveTheme() {
@@ -19,13 +19,6 @@ export function getActiveTheme() {
     }
   } catch {
     // Ignore storage errors in restricted modes
-  }
-  if (
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  ) {
-    return "light";
   }
   return "dark";
 }
@@ -66,7 +59,7 @@ export function applyTheme(theme, persist = true) {
 }
 
 /**
- * Initializes the theme toggle button and listens for OS theme changes when no manual override is saved.
+ * Initializes the theme toggle button.
  */
 export function initTheme() {
   const current = getActiveTheme();
@@ -77,19 +70,6 @@ export function initTheme() {
     toggleBtn.addEventListener("click", () => {
       const next = getActiveTheme() === "dark" ? "light" : "dark";
       applyTheme(next, true);
-    });
-  }
-
-  if (window.matchMedia) {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
-    mediaQuery.addEventListener("change", (e) => {
-      try {
-        if (!localStorage.getItem(STORAGE_KEY)) {
-          applyTheme(e.matches ? "light" : "dark", false);
-        }
-      } catch {
-        applyTheme(e.matches ? "light" : "dark", false);
-      }
     });
   }
 }
