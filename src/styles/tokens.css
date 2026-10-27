@@ -1,0 +1,106 @@
+/* ==========================================================================
+   DESIGN TOKENS & THEME VARIABLES
+   ========================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Core Palette — Dark (Default) */
+  --bg: #0A0E17;
+  --bg-elev: #111827;
+  --surface: #151C2C;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --fg: #F3F4F6;
+  --fg-muted: #9CA3AF;
+
+  /* Brand & Track Accents */
+  --red: #EF4444;
+  --red-hover: #DC2626;
+  --red-subtle: rgba(239, 68, 68, 0.12);
+  --cyan: #22D3EE;
+  --cyan-subtle: rgba(34, 211, 238, 0.12);
+  --track-accent: var(--cyan);
+
+  /* Glass & Elevation */
+  --nav-bg: rgba(17, 24, 39, 0.78);
+  --backdrop-bg: rgba(10, 14, 23, 0.75);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.28);
+  --shadow-card-hover: 0 14px 32px rgba(0, 0, 0, 0.42);
+  --shadow-red: 0 4px 16px rgba(239, 68, 68, 0.32);
+
+  /* Status Colors */
+  --status-success-bg: rgba(6, 95, 70, 0.25);
+  --status-success-fg: #6EE7B7;
+  --status-success-border: rgba(110, 231, 183, 0.3);
+  --status-error-bg: rgba(153, 27, 27, 0.25);
+  --status-error-fg: #FCA5A5;
+  --status-error-border: rgba(252, 165, 165, 0.3);
+
+  /* Typography */
+  --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Layout & Geometry */
+  --container-max: 1160px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+  --section-pad-y: clamp(4rem, 8vw, 7.5rem);
+  --section-pad-x: 1.5rem;
+
+  /* Legacy aliases for smooth Phase 1 transition */
+  --bg-color: var(--bg);
+  --text-main: var(--fg);
+  --text-muted: var(--fg-muted);
+  --accent-red: var(--red);
+  --accent-red-hover: var(--red-hover);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Core Palette — Light */
+  --bg: #F3F4F6;
+  --bg-elev: #FFFFFF;
+  --surface: #FFFFFF;
+  --border: rgba(17, 24, 39, 0.10);
+  --border-strong: rgba(17, 24, 39, 0.20);
+  --fg: #111827;
+  --fg-muted: #4B5563;
+
+  /* Brand & Track Accents */
+  --red: #DC2626;
+  --red-hover: #B91C1C;
+  --red-subtle: rgba(220, 38, 38, 0.08);
+  --cyan: #0E7490;
+  --cyan-subtle: rgba(14, 116, 144, 0.08);
+  --track-accent: var(--cyan);
+
+  /* Glass & Elevation */
+  --nav-bg: rgba(255, 255, 255, 0.86);
+  --backdrop-bg: rgba(17, 24, 39, 0.55);
+  --shadow-card: 0 4px 12px rgba(17, 24, 39, 0.04);
+  --shadow-card-hover: 0 12px 24px rgba(17, 24, 39, 0.08);
+  --shadow-red: 0 4px 14px rgba(220, 38, 38, 0.25);
+
+  /* Status Colors */
+  --status-success-bg: #ECFDF5;
+  --status-success-fg: #065F46;
+  --status-success-border: #A7F3D0;
+  --status-error-bg: #FEF2F2;
+  --status-error-fg: #991B1B;
+  --status-error-border: #FECACA;
+}
+
+/* Per-track accent switch (used on Case Studies section) */
+[data-track="software"] {
+  --track-accent: var(--red);
+}
+
+[data-track="data"] {
+  --track-accent: var(--cyan);
+}
