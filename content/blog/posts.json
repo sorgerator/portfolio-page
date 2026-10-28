@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "how-i-built-this-portfolio-without-a-framework",
+    "title": "How I built this portfolio without a framework",
+    "date": "2026-10-28",
+    "summary": "Why I chose plain HTML, CSS custom properties, and vanilla ES modules over a bundler or SPA framework—and how the router, lazy Markdown blog, and canvas network work.",
+    "tags": ["Web Development", "JavaScript", "CSS", "Architecture"],
+    "draft": true
+  }
+]
