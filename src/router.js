@@ -209,6 +209,11 @@ export async function handleRoute(options = {}) {
     setScrollSpyMode(false);
     setNavActive("blog", "page");
 
+    if (!blogRouteHandler) {
+      const blogMod = await import("./blog.js");
+      blogRouteHandler = blogMod.renderBlogRoute;
+    }
+
     if (blogRouteHandler) {
       await blogRouteHandler(slug);
     } else if (blogView) {

@@ -1543,7 +1543,7 @@ body.modal-open {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--red);
+  color: var(--fg);
   background-color: var(--red-subtle);
   border: 1px solid var(--border);
   padding: 0.35rem 0.85rem;
@@ -1553,9 +1553,9 @@ body.modal-open {
 }
 
 .calendar-card-header:hover .calendar-toggle-badge {
-  background-color: var(--red);
+  background-color: #dc2626;
   color: #ffffff;
-  border-color: var(--red);
+  border-color: #dc2626;
 }
 
 .chevron-icon {

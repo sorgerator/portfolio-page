@@ -182,7 +182,7 @@
   font-weight: 600;
   text-decoration: none;
   color: #ffffff;
-  background-color: var(--red);
+  background-color: #dc2626;
   padding: 0.825rem 1.6rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
@@ -196,7 +196,7 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--red-hover);
+  background-color: #b91c1c;
   transform: translateY(-2px);
 }
 

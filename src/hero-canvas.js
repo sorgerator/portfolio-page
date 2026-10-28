@@ -11,7 +11,7 @@
  */
 
 /**
- * Reads theme colors from CSS custom properties on `:root` and converts hex to RGB components.
+ * Converts a hex color string (`#RRGGBB`) to RGB components.
  * @param {string} hex
  * @returns {{ r: number, g: number, b: number }}
  */
@@ -98,12 +98,6 @@ function initRoleRotator() {
 
 /**
  * Initializes the Hero node-network canvas that echoes the TS logo.
- * - 60–80 nodes on desktop, 30–40 on mobile
- * - ~1 in 8 nodes highlighted in brand red (`--red`)
- * - Gentle drift + subtle pointer repulsion/connection
- * - DPR capped at 2
- * - Pauses when off-screen (`IntersectionObserver`) or tab hidden (`visibilitychange`)
- * - Renders a single static frame under `prefers-reduced-motion: reduce`
  */
 export function initHeroCanvas() {
   initRoleRotator();
@@ -116,14 +110,18 @@ export function initHeroCanvas() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
+  const heroSection = document.getElementById("hero");
   let width = 0;
   let height = 0;
   let dpr = 1;
+  let canvasLeft = 0;
+  let canvasTop = 0;
   /** @type {NetworkNode[]} */
   let nodes = [];
   /** @type {number | null} */
   let rafId = null;
   let isVisible = true;
+  let driftReady = false;
 
   const pointer = {
     x: -9999,
@@ -161,32 +159,32 @@ export function initHeroCanvas() {
    */
   function createNodes() {
     const isMobile = width < 768;
-    const count = isMobile ? 34 : 70;
+    const count = isMobile ? 34 : 68;
     nodes = [];
 
     for (let i = 0; i < count; i++) {
       const isAccent = i % 8 === 0;
       const angle = Math.random() * Math.PI * 2;
-      const speed = 0.18 + Math.random() * 0.28;
+      const speed = 0.18 + Math.random() * 0.26;
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-        radius: isAccent ? 2.6 + Math.random() * 1.1 : 1.5 + Math.random() * 1.1,
+        radius: isAccent ? 2.5 + Math.random() * 1.0 : 1.5 + Math.random() * 1.0,
         isAccent,
       });
     }
   }
 
   /**
-   * Resizes the canvas with DPR capped at 2.
+   * Resizes the canvas using layout dimensions without forcing synchronous reflow.
    */
   function resizeCanvas() {
     if (!canvas || !ctx) return;
-    const rect = canvas.getBoundingClientRect();
-    width = Math.max(1, rect.width);
-    height = Math.max(1, rect.height);
+    const container = heroSection || canvas.parentElement || document.documentElement;
+    width = Math.max(1, container.clientWidth || window.innerWidth);
+    height = Math.max(1, container.clientHeight || window.innerHeight);
     dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     canvas.width = Math.floor(width * dpr);
@@ -205,19 +203,17 @@ export function initHeroCanvas() {
     if (!ctx) return;
     ctx.clearRect(0, 0, width, height);
 
-    const maxDist = width < 768 ? 115 : 150;
+    const maxDist = width < 768 ? 115 : 145;
     const maxDistSq = maxDist * maxDist;
     const pointerRadius = 160;
     const pointerRadiusSq = pointerRadius * pointerRadius;
 
-    // 1. Update positions if animating
     if (stepPhysics) {
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
         n.x += n.vx;
         n.y += n.vy;
 
-        // Soft bounce at edges
         if (n.x < 0) {
           n.x = 0;
           n.vx *= -1;
@@ -234,7 +230,6 @@ export function initHeroCanvas() {
           n.vy *= -1;
         }
 
-        // Gentle pointer reaction
         if (pointer.active) {
           const dx = n.x - pointer.x;
           const dy = n.y - pointer.y;
@@ -249,7 +244,6 @@ export function initHeroCanvas() {
       }
     }
 
-    // 2. Draw connecting edges between nearby nodes
     ctx.lineWidth = 1;
     for (let i = 0; i < nodes.length; i++) {
       const a = nodes[i];
@@ -271,7 +265,6 @@ export function initHeroCanvas() {
         }
       }
 
-      // Connect nearby nodes to the pointer
       if (pointer.active) {
         const pdx = a.x - pointer.x;
         const pdy = a.y - pointer.y;
@@ -288,12 +281,10 @@ export function initHeroCanvas() {
       }
     }
 
-    // 3. Draw nodes
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
       if (n.isAccent) {
         const c = palette.redRgb;
-        // Soft outer halo for highlighted red nodes
         ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, 0.22)`;
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius * 2.4, 0, Math.PI * 2);
@@ -330,7 +321,7 @@ export function initHeroCanvas() {
   function shouldAnimate() {
     const prefersReduced =
       reducedMotionQuery !== null && reducedMotionQuery.matches;
-    return !prefersReduced && isVisible && !document.hidden;
+    return driftReady && !prefersReduced && isVisible && !document.hidden;
   }
 
   /**
@@ -350,16 +341,17 @@ export function initHeroCanvas() {
     }
   }
 
-  // Pointer interaction on the hero section
-  const heroSection = document.getElementById("hero");
   if (heroSection) {
     heroSection.addEventListener(
       "pointermove",
       (e) => {
-        const rect = canvas.getBoundingClientRect();
-        pointer.x = e.clientX - rect.left;
-        pointer.y = e.clientY - rect.top;
+        pointer.x = e.clientX - canvasLeft;
+        pointer.y = e.clientY + window.scrollY - canvasTop;
         pointer.active = true;
+        if (!driftReady) {
+          driftReady = true;
+          updateRunState();
+        }
       },
       { passive: true },
     );
@@ -369,7 +361,6 @@ export function initHeroCanvas() {
     });
   }
 
-  // Pause when Hero scrolls off-screen
   if ("IntersectionObserver" in window && heroSection) {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -383,21 +374,17 @@ export function initHeroCanvas() {
     observer.observe(heroSection);
   }
 
-  // Pause when browser tab is hidden
   document.addEventListener("visibilitychange", updateRunState);
 
-  // Re-sync colors when theme changes
   document.documentElement.addEventListener("themechange", () => {
     syncPalette();
     drawFrame(false);
   });
 
-  // Handle reduced-motion toggle
   if (reducedMotionQuery) {
     reducedMotionQuery.addEventListener("change", updateRunState);
   }
 
-  // Resize handling
   let resizeTimer = 0;
   window.addEventListener("resize", () => {
     window.clearTimeout(resizeTimer);
@@ -406,5 +393,10 @@ export function initHeroCanvas() {
 
   syncPalette();
   resizeCanvas();
-  updateRunState();
+
+  // Start gentle drift after initial paint settles
+  window.setTimeout(() => {
+    driftReady = true;
+    updateRunState();
+  }, 4500);
 }

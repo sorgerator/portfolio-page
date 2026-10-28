@@ -1,115 +1,106 @@
-# Tarik Sorguč — Personal Portfolio
+# Tarik Sorguč — Personal Portfolio (`tariksorguc.me`)
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://www.netlify.com/)
+Personal portfolio and technical blog of **Tarik Sorguč** (Data Science & AI Engineering student at International Burch University, Sarajevo).
 
-A modern, fast, and responsive personal portfolio website for **Tarik Sorguč**, Data Science & AI Engineering student at International Burch University and Machine Learning Intern at FlyRank AI.
+Built by hand with **plain HTML5, CSS3 custom properties, and vanilla ES modules**—no framework, no bundler, and zero build step.
 
 ---
 
-## 🌟 Overview
-
-This portfolio showcases selected engineering projects, technical case studies, professional background, and interactive contact channels. Built with vanilla web technologies, the site achieves high performance, zero external framework dependencies, and a clean dark-themed UI.
-
----
-
-## ✨ Features
-
-- **🎨 Modern Dark UI / UX**: Clean dark-mode aesthetic with crimson accent highlights, glassmorphism cards, and typography powered by [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [Inter](https://fonts.google.com/specimen/Inter).
-- **📂 Case Studies & Projects**: Highlights engineering work (e.g., FlyRank ML search intelligence capstone, multimodal data ingestion pipelines, automated LLM outreach systems) with tech tags and direct GitHub links.
-- **✉️ Interactive Contact Modal**: Asynchronous contact form integration with [Netlify Forms](https://www.netlify.com/products/forms/), client-side validation, and instant feedback alerts.
-- **📅 Embedded Appointment Scheduling**: Integrated [Google Calendar Appointment Scheduling](https://calendar.google.com/) embed with a collapsible accordion toggle.
-- **📱 Fully Responsive Design**: Mobile-friendly navigation drawer with hamburger animation, adaptive grid layouts, and touch-friendly interactions across desktop, tablet, and mobile screens.
-- **🔍 SEO & Social Sharing**: Preconfigured Open Graph meta tags, semantic HTML5 markup, and favicon assets.
-
----
-
-## 📁 Project Structure
+## 1. Project Structure
 
 ```text
-portfolio-page/
-├── assets/
-│   ├── Tarik_Sorguc_CV.pdf     # Downloadable Curriculum Vitae (PDF)
-│   └── logo_ss.png             # Site logo, favicon, and Open Graph image
-├── src/
-│   ├── app.js                  # Client-side JavaScript (modal, form handling, calendar, nav)
-│   └── styles.css              # Custom CSS styles, variables, components, and media queries
-├── index.html                  # Main portfolio landing page
-└── README.md                   # Project documentation
+/
+├─ index.html                # App shell + static Home sections + hidden Blog & 404 mount points
+├─ netlify.toml              # SPA rewrite rule (/* -> /index.html 200) + immutable asset caching
+├─ robots.txt                # Search crawler configuration
+├─ sitemap.xml               # Canonical URLs for search engines
+├─ assets/
+│  ├─ logo_ss.png            # Brand logo & favicon
+│  ├─ Tarik_Sorguc_CV.pdf    # Downloadable CV
+│  ├─ fonts/                 # Self-hosted Space Grotesk & Inter woff2 (latin + latin-ext for "č")
+│  └─ img/
+│     ├─ og-image.png        # 1200x630 Open Graph preview image
+│     └─ me.webp             # Optional hero portrait (unhide `.hero-photo-slot` in index.html when added)
+├─ content/
+│  └─ blog/
+│     ├─ posts.json          # Blog post manifest (slug, title, date, summary, tags, draft)
+│     └─ <slug>.md           # Markdown source for each blog post
+├─ vendor/                   # Lazy-loaded marked + highlight.js (loaded only on /blog/:slug routes)
+└─ src/
+   ├─ main.js                # Entry point: initializes theme, nav, case studies, contact, blog, router, reveal, hero canvas
+   ├─ router.js              # History API SPA router (/, /blog, /blog/:slug, 404, anchor scrolling)
+   ├─ theme.js               # Dark-first theme controller with localStorage persistence
+   ├─ nav.js                 # Floating glass nav pill, scroll-spy, mobile drawer, 2px scroll progress bar
+   ├─ hero-canvas.js         # Interactive node-network canvas & rotating role phrase
+   ├─ case-studies.js        # Segmented track control, URL ?track= sync, pointer spotlight, native <dialog>
+   ├─ contact.js             # Netlify Forms AJAX handler + lazy Google Calendar booking accordion
+   ├─ blog.js                # Blog list, tag filtering, reading time, lazy Markdown + syntax highlighting
+   ├─ reveal.js              # IntersectionObserver scroll reveal (400ms fade & rise)
+   └─ styles/
+      ├─ tokens.css          # Design tokens for dark & light themes + track accent variables
+      ├─ base.css            # @font-face rules, reset, typography, focus styles, reduced-motion overrides
+      ├─ components.css      # Buttons, pills, tags, social links, FlyRank badge, mobile nav drawer
+      ├─ sections.css        # Hero, ticker, About, Case Studies, <dialog>, Contact, Footer
+      └─ blog.css            # Lazy-loaded stylesheet for /blog and /blog/:slug
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 2. How to Run Locally
 
-| Technology | Purpose |
-| :--- | :--- |
-| **HTML5** | Semantic document structure and accessibility attributes (`aria-*`) |
-| **CSS3** | Modern layout (CSS Grid & Flexbox), CSS Custom Properties, animations, and responsive media queries |
-| **JavaScript (ES6+)** | Dynamic interactions, modal state management, event listeners, and asynchronous form submission |
-| **Netlify Forms** | Serverless form submission handling with spam prevention honeypot |
-| **Google Calendar** | Direct meeting booking widget integration |
+Because the site uses ES modules (`<script type="module">`) and root-relative asset paths (`/src/...`, `/assets/...`), open the project with any static HTTP server from the repository root:
+
+- **VSCode Live Server (recommended):**
+  Right-click `index.html` in VSCode and select **"Open with Live Server"**.
+- **Python built-in HTTP server:**
+  ```bash
+  python -m http.server 5500
+  ```
+  Then open `http://localhost:5500` in your browser.
+- **Netlify CLI (supports SPA rewrites on direct `/blog` refresh locally):**
+  ```bash
+  npx netlify-cli dev
+  ```
 
 ---
 
-## 🚀 Getting Started
+## 3. How to Add a Project (Case Study)
 
-### Prerequisites
+All case study cards live directly in `index.html` inside `<div class="cases-grid" id="casesGrid">`.
 
-No build tools, package managers, or frameworks are required. You only need a modern web browser.
+1. Open `index.html` and locate `<section id="work" class="cases" data-track="data">`.
+2. Copy an existing `<article class="card" data-track="data">` (for **Data and Automation**) or `<article class="card" data-track="software" hidden>` (for **Software**).
+3. Update:
+   - `data-track="data"` or `data-track="software"` (add `.featured` to `<article class="card featured ...">` if you want it to span 2 columns on desktop).
+   - `.card-period`, `.card-title`, and `.card-summary`.
+   - `.card-metrics` (up to 3 `<span class="metric-chip">...</span>` with real metrics; remove the `.card-metrics` block if there are no numerical metrics).
+   - `.card-tags` (`<span class="tech-tag">...</span>`).
+   - `.card-links` (`View Repository ->`, `View Paper ->`, `Live site ->`).
+   - `.card-details` (hidden `<div>` with `Problem`, `What I Built`, and `Result` blocks displayed inside the native `<dialog>` when clicking **Details**).
+4. The project counts on the `Software` and `Data and Automation` tab buttons update automatically on load.
 
-### Local Development
+---
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/sorgerator/portfolio-page.git
-   cd portfolio-page
+## 4. How to Add a Blog Post
+
+No CMS or build step is needed:
+
+1. Create a new Markdown file in `content/blog/<your-slug>.md`:
+   ```markdown
+   ## Introduction
+
+   Write standard GitHub-Flavored Markdown here. Code blocks in `python`, `sql`, `javascript`, `typescript`, and `bash` are syntax-highlighted automatically.
    ```
-
-2. **Run locally**:
-   - **Directly in browser**: Double-click `index.html` or open it via your browser.
-   - **Using VS Code Live Server**: Right-click `index.html` and select **"Open with Live Server"**.
-   - **Using Python HTTP server**:
-     ```bash
-     python -m http.server 8000
-     ```
-     Open `http://localhost:8000` in your browser.
-   - **Using Node.js `serve`**:
-     ```bash
-     npx serve .
-     ```
-
----
-
-## 🌐 Deployment
-
-### Netlify (Recommended)
-
-1. Push your repository to GitHub.
-2. Log in to [Netlify](https://app.netlify.com/) and click **"Add new site"** > **"Import an existing project"**.
-3. Select your `portfolio-page` repository.
-4. Leave the build command empty and set the publish directory to `.` (root).
-5. Deploy the site. Netlify will automatically detect the form (`name="contact"`) and enable Netlify Forms.
-
-### GitHub Pages / Other Static Hosts
-
-You can host this project on GitHub Pages or Vercel:
-- **GitHub Pages**: Go to **Repository Settings** > **Pages** > Select `main` branch and `/ (root)` folder > Save.
-
----
-
-## 📬 Contact & Socials
-
-- **Author**: Tarik Sorguč
-- **Email**: [tarik.sorguc1@gmail.com](mailto:tarik.sorguc1@gmail.com)
-- **LinkedIn**: [linkedin.com/in/tarik-sorguc-27137523b](https://www.linkedin.com/in/tarik-sorguc-27137523b/)
-- **GitHub**: [@sorgerator](https://github.com/sorgerator)
-- **Internship Verification**: [FlyRank AI Graduate Verification](https://internship.flyrank.ai/intern)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE) (or open for personal portfolio use). Feel free to adapt the design and code for your own portfolio.
+2. Add an entry to `content/blog/posts.json`:
+   ```json
+   {
+     "slug": "your-slug",
+     "title": "Your Post Title",
+     "date": "2026-11-01",
+     "summary": "A concise 1-2 sentence summary shown on the /blog card and in meta tags.",
+     "tags": ["Python", "Data Engineering"],
+     "draft": false
+   }
+   ```
+   - Set `"draft": true` while writing—drafts are never listed on `/blog` or accessible at `/blog/:slug`.
+   - Set `"draft": false` when ready to publish, and add `<url><loc>https://tariksorguc.me/blog/your-slug</loc>...</url>` to `sitemap.xml`.

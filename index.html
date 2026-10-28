@@ -31,8 +31,10 @@
     />
     <meta
       property="og:image"
-      content="https://tariksorguc.me/assets/logo_ss.png"
+      content="https://tariksorguc.me/assets/img/og-image.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Tarik Sorguč Portfolio Preview" />
 
     <!-- Twitter / X Cards -->
@@ -48,8 +50,32 @@
     />
     <meta
       name="twitter:image"
-      content="https://tariksorguc.me/assets/logo_ss.png"
+      content="https://tariksorguc.me/assets/img/og-image.png"
     />
+
+    <!-- Structured Data: JSON-LD Person Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tarik Sorguč",
+        "url": "https://tariksorguc.me/",
+        "jobTitle": "Data Science & AI Engineering Student",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "International Burch University",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sarajevo",
+            "addressCountry": "BA"
+          }
+        },
+        "sameAs": [
+          "https://github.com/sorgerator",
+          "https://www.linkedin.com/in/tarik-sorguc"
+        ]
+      }
+    </script>
 
     <!-- Pre-paint Theme Initialization (Always dark on first visit unless user saved light) -->
     <script>
@@ -102,7 +128,7 @@
       <div class="nav-container">
         <a href="/" class="nav-logo">
           <img
-            src="/assets/logo_ss.png"
+            src="/assets/img/logo-nav.png"
             alt="Tarik Sorguč Logo"
             class="nav-logo-img"
             width="32"
@@ -298,9 +324,9 @@
           <p class="eyebrow mono">01 / About</p>
           <h2 class="section-title">About Me</h2>
 
-          <div class="about-grid">
+          <div class="about-grid" data-reveal-group>
             <!-- Left Column: Bio + Compact Timeline -->
-            <div class="about-left">
+            <div class="about-left" data-reveal>
               <div class="about-card">
                 <p class="panel-heading">Background</p>
                 <p class="about-text">
@@ -399,7 +425,7 @@
             </div>
 
             <!-- Right Column: Facts Panel + Grouped Skills Tag Clusters -->
-            <div class="about-right">
+            <div class="about-right" data-reveal>
               <div class="facts-card">
                 <p class="panel-heading">Quick Facts</p>
                 <div class="facts-list">
@@ -473,7 +499,7 @@
       <!-- 3. Case Studies (Work) Section -->
       <section id="work" class="cases" data-track="data">
         <div class="cases-container">
-          <div class="cases-header">
+          <div class="cases-header" data-reveal>
             <div class="cases-heading-group">
               <p class="eyebrow mono">02 / Selected Work</p>
               <h2 class="section-title">Selected Work</h2>
@@ -520,6 +546,7 @@
             id="casesGrid"
             role="tabpanel"
             aria-labelledby="tab-data"
+            data-reveal
           >
             <!-- ==============================================================
                  DATA AND AUTOMATION TRACK (3 Cards)
@@ -1270,7 +1297,7 @@
       <!-- 4. Contact Section ("Let's work together") -->
       <section id="contact" class="contact">
         <div class="contact-container">
-          <div class="contact-intro">
+          <div class="contact-intro" data-reveal>
             <p class="eyebrow mono">03 / Contact</p>
             <h2 class="section-title">Let's work together</h2>
             <p class="contact-description">
@@ -1281,9 +1308,9 @@
             </p>
           </div>
 
-          <div class="contact-grid">
+          <div class="contact-grid" data-reveal-group>
             <!-- Left Column: "How I can help" Cards + Direct Email + Social Row + Actions -->
-            <div class="contact-left">
+            <div class="contact-left" data-reveal>
               <div class="help-cards" aria-label="How I can help">
                 <div class="help-card">
                   <h3 class="help-card-title">
@@ -1531,7 +1558,7 @@
             </div>
 
             <!-- Right Column: Inline Netlify Contact Form -->
-            <div class="contact-right">
+            <div class="contact-right" data-reveal>
               <div class="contact-form-card">
                 <h3 class="contact-form-heading">Send a Message</h3>
                 <p class="contact-form-sub">
@@ -1731,7 +1758,7 @@
             href="https://internship.flyrank.ai/verify?id=FR-D1-T668H-R789R&first_name=Tarik"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Verify Tarik Sorguč's FlyRank AI Internship credential"
+            aria-label="FlyRank verified — Verify Tarik Sorguč's FlyRank AI Internship credential"
             class="flyrank-badge"
           >
             <svg

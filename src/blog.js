@@ -526,19 +526,25 @@ async function renderBlogPost(container, slug) {
 }
 
 /**
+ * Renders the blog view (`/blog` or `/blog/:slug`).
+ * @param {string | null} slug
+ */
+export async function renderBlogRoute(slug) {
+  const blogView = document.getElementById("blog-view");
+  if (!blogView) return;
+
+  await ensureBlogStyles();
+
+  if (slug) {
+    await renderBlogPost(blogView, slug);
+  } else {
+    await renderBlogList(blogView);
+  }
+}
+
+/**
  * Registers the blog route handler with the SPA router.
  */
 export function initBlog() {
-  registerBlogRouteHandler(async (slug) => {
-    const blogView = document.getElementById("blog-view");
-    if (!blogView) return;
-
-    await ensureBlogStyles();
-
-    if (slug) {
-      await renderBlogPost(blogView, slug);
-    } else {
-      await renderBlogList(blogView);
-    }
-  });
+  registerBlogRouteHandler(renderBlogRoute);
 }
