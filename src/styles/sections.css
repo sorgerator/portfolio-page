@@ -1214,8 +1214,12 @@
 }
 
 /* ==========================================================================
-   4. CONTACT SECTION
+   4. CONTACT SECTION ("LET'S WORK TOGETHER" + INLINE FORM + CALENDAR)
    ========================================================================== */
+body.modal-open {
+  overflow: hidden;
+}
+
 .contact {
   padding: var(--section-pad-y) var(--section-pad-x);
   background-color: var(--bg);
@@ -1227,239 +1231,151 @@
   margin: 0 auto;
 }
 
-.contact-description {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: var(--fg-muted);
+.contact-intro {
   max-width: 720px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-.contact-actions {
+.contact-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.contact-left {
+  grid-column: span 5;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  align-items: flex-start;
-  width: 100%;
 }
 
-.email-buttons {
+.contact-right {
+  grid-column: span 7;
+}
+
+/* Three "How I can help" Cards */
+.help-cards {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
-.calendar-embed-card {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin-top: 2rem;
+.help-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
   box-shadow: var(--shadow-card);
-  overflow: hidden;
   transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.calendar-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
-  min-height: 48px;
-  cursor: pointer;
-  user-select: none;
-  background-color: var(--surface);
-  transition: background-color 0.2s ease;
+.help-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
 
-.calendar-card-header:hover {
-  background-color: var(--bg-elev);
-}
-
-.calendar-embed-title {
+.help-card-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.025rem;
   font-weight: 700;
   color: var(--fg);
-  margin: 0;
-  display: inline-flex;
+  margin-bottom: 0.25rem;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.calendar-toggle-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--red);
-  background-color: var(--red-subtle);
-  border: 1px solid var(--border);
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  min-height: 36px;
-  transition: all 0.2s ease;
-}
-
-.calendar-card-header:hover .calendar-toggle-badge {
+.help-card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   background-color: var(--red);
-  color: #ffffff;
-  border-color: var(--red);
-}
-
-.chevron-icon {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.calendar-embed-card.open .chevron-icon {
-  transform: rotate(180deg);
-}
-
-.calendar-embed-wrapper {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.35s ease,
-    padding 0.3s ease;
-  padding: 0 1.5rem;
-}
-
-.calendar-embed-card.open .calendar-embed-wrapper {
-  max-height: 700px;
-  opacity: 1;
-  padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-.calendar-embed-wrapper iframe {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  height: 600px;
-  border: 0;
-  display: block;
-  border-radius: var(--radius-sm);
-  box-sizing: border-box;
-  background-color: #ffffff;
-}
-
-/* ==========================================================================
-   5. LEGACY MODAL (KEPT UNTIL PHASE 6 REPLACES WITH INLINE FORM)
-   ========================================================================== */
-body.modal-open {
-  overflow: hidden;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  visibility: hidden;
-  opacity: 0;
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease;
-}
-
-.modal-overlay.active {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: var(--backdrop-bg);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.modal-card {
-  position: relative;
-  z-index: 1;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  width: 100%;
-  max-width: 620px;
-  border-radius: var(--radius-card);
-  padding: 2.25rem;
-  box-shadow: var(--shadow-card-hover);
-  max-height: calc(100vh - 3rem);
-  overflow-y: auto;
-  transform: translateY(16px) scale(0.97);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.modal-overlay.active .modal-card {
-  transform: translateY(0) scale(1);
-}
-
-.modal-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-}
-
-.modal-header-text {
-  flex: 1;
-}
-
-.modal-title {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--fg);
-  line-height: 1.2;
-}
-
-.modal-subtitle {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--fg-muted);
-  margin-top: 0.35rem;
-}
-
-.modal-close-btn {
-  background: transparent;
-  border: 1px solid transparent;
-  min-width: 44px;
-  min-height: 44px;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  color: var(--fg-muted);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
   flex-shrink: 0;
 }
 
-.modal-close-btn:hover {
-  background-color: var(--bg-elev);
+.help-card-text {
+  font-size: 0.925rem;
+  color: var(--fg-muted);
+  line-height: 1.55;
+}
+
+/* Direct Email + Buttons + Social Row */
+.contact-direct {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-email-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-email-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+}
+
+.contact-email-link {
+  font-family: var(--font-mono);
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: var(--red);
+  text-decoration: none;
+  word-break: break-all;
+  transition: opacity 0.2s ease;
+}
+
+.contact-email-link:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.contact-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Inline Netlify Contact Form Card */
+.contact-form-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-form-heading {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--fg);
+  margin-bottom: 0.35rem;
+}
+
+.contact-form-sub {
+  font-size: 0.95rem;
+  color: var(--fg-muted);
+  margin-bottom: 1.5rem;
 }
 
 .contact-form {
@@ -1522,21 +1438,21 @@ body.modal-open {
 
 .form-textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 135px;
   line-height: 1.6;
 }
 
-.modal-form-actions {
+.form-actions {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
-  margin-top: 0.5rem;
+  justify-content: flex-start;
+  margin-top: 0.25rem;
 }
 
 .form-submit-btn {
   border: none;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 46px;
 }
 
 .form-submit-btn:disabled {
@@ -1546,11 +1462,6 @@ body.modal-open {
   box-shadow: none !important;
 }
 
-.modal-cancel-btn {
-  cursor: pointer;
-  min-height: 44px;
-}
-
 .form-status {
   padding: 0.875rem 1.125rem;
   border-radius: var(--radius-sm);
@@ -1558,7 +1469,6 @@ body.modal-open {
   font-size: 0.925rem;
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
 }
 
 .form-status.status-success {
@@ -1577,6 +1487,145 @@ body.modal-open {
   color: var(--red);
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* Lazy Google Calendar Booking Accordion */
+.calendar-embed-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 2.25rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.calendar-card-header {
+  width: 100%;
+  border: none;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  min-height: 54px;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--surface);
+  color: var(--fg);
+  transition: background-color 0.2s ease;
+}
+
+.calendar-card-header:hover {
+  background-color: var(--bg-elev);
+}
+
+.calendar-embed-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.calendar-toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--red);
+  background-color: var(--red-subtle);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  min-height: 36px;
+  transition: all 0.2s ease;
+}
+
+.calendar-card-header:hover .calendar-toggle-badge {
+  background-color: var(--red);
+  color: #ffffff;
+  border-color: var(--red);
+}
+
+.chevron-icon {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-embed-card.open .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.calendar-embed-wrapper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease,
+    padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.calendar-embed-card.open .calendar-embed-wrapper {
+  max-height: 700px;
+  opacity: 1;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.calendar-embed-wrapper iframe {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 600px;
+  border: 0;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .contact-left,
+  .contact-right {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-form-card {
+    padding: 1.5rem;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+  }
+
+  .calendar-card-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .calendar-embed-card.open .calendar-embed-wrapper {
+    padding: 0 0.75rem 1rem 0.75rem;
+    max-height: 600px;
+  }
+
+  .calendar-embed-wrapper iframe {
+    height: 500px;
+  }
 }
 
 /* ==========================================================================

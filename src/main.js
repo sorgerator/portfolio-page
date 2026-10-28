@@ -4,6 +4,7 @@ import { initNav } from "./nav.js";
 import { initRouter } from "./router.js";
 import { initHeroCanvas } from "./hero-canvas.js";
 import { initCaseStudies } from "./case-studies.js";
+import { initContact } from "./contact.js";
 
 /**
  * Application entry point.
@@ -12,6 +13,7 @@ function bootstrap() {
   initTheme();
   initNav();
   initCaseStudies();
+  initContact();
   initRouter();
   initHeroCanvas();
 }
