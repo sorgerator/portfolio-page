@@ -393,6 +393,47 @@
   font-size: inherit;
 }
 
+.blog-prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin-block: 2.25rem;
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 1.5rem;
+  font-size: 0.925rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+
+.blog-prose th,
+.blog-prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-prose th {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  background-color: var(--bg-elev);
+}
+
+.blog-prose tr:last-child td {
+  border-bottom: none;
+}
+
 /* Highlight.js Syntax Theme (Adapts to Dark & Light Tokens) */
 .hljs-comment,
 .hljs-quote {

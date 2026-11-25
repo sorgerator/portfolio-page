@@ -1,10 +1,20 @@
 [
   {
+    "slug": "predicting-content-decay-at-scale-flyrank-ai",
+    "title": "Predicting Content Decay Across 78.8M Search Records: My ML Engineering Internship at FlyRank AI",
+    "date": "2026-11-24",
+    "summary": "How I engineered a DuckDB and Random Forest ranking pipeline across 78.8 million daily Google Search Console and GA4 records to predict content decay with 98.0% Precision@50—winning 2nd place at Prolog EXPO 2026.",
+    "tags": ["Machine Learning", "Data Engineering", "DuckDB", "Python", "Search Intelligence"],
+    "readingMinutes": 6,
+    "draft": false
+  },
+  {
     "slug": "how-i-built-this-portfolio-without-a-framework",
     "title": "How I built this portfolio without a framework",
     "date": "2026-10-28",
     "summary": "Why I chose plain HTML, CSS custom properties, and vanilla ES modules over a bundler or SPA framework—and how the router, lazy Markdown blog, and canvas network work.",
     "tags": ["Web Development", "JavaScript", "CSS", "Architecture"],
+    "readingMinutes": 4,
     "draft": true
   }
 ]
