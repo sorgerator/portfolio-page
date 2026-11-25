@@ -115,7 +115,8 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/img/logo-nav.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/logo-nav.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo_ss.png" />
     <link rel="apple-touch-icon" href="/assets/logo_ss.png" />
 
     <!-- Modular Stylesheets -->
@@ -276,14 +277,15 @@
             </ul>
           </div>
 
-          <!-- Optional Photo Slot (TODO: Remove `hidden` once /assets/img/me.webp is provided) -->
-          <div class="hero-photo-slot" hidden>
+          <!-- Hero Portrait -->
+          <div class="hero-photo-slot">
             <div class="hero-photo-frame">
               <img
                 src="/assets/img/me.webp"
                 alt="Portrait of Tarik Sorguč"
                 width="320"
                 height="400"
+                fetchpriority="high"
                 decoding="async"
               />
             </div>

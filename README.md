@@ -19,8 +19,9 @@ Built by hand with **plain HTML5, CSS3 custom properties, and vanilla ES modules
 │  ├─ Tarik_Sorguc_CV.pdf    # Downloadable CV
 │  ├─ fonts/                 # Self-hosted Space Grotesk & Inter woff2 (latin + latin-ext for "č")
 │  └─ img/
+│     ├─ logo-nav.png        # 32x32 Navigation & browser tab favicon
 │     ├─ og-image.png        # 1200x630 Open Graph preview image
-│     └─ me.webp             # Optional hero portrait (unhide `.hero-photo-slot` in index.html when added)
+│     └─ me.webp             # Hero section portrait
 ├─ content/
 │  └─ blog/
 │     ├─ posts.json          # Blog post manifest (slug, title, date, summary, tags, draft)

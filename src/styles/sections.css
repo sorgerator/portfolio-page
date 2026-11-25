@@ -46,6 +46,10 @@
   grid-column: 1 / span 8;
 }
 
+.hero-container:has(.hero-photo-slot:not([hidden])) .hero-title {
+  font-size: clamp(3rem, 6.2vw, 5.5rem);
+}
+
 .hero-photo-slot {
   grid-column: 9 / -1;
   display: flex;
@@ -67,6 +71,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  transform: scale(1.02);
 }
 
 /* Status Chip with Pulsing Dot */
