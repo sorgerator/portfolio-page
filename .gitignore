@@ -1,0 +1,10 @@
+# OS & Editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local tooling & Netlify CLI
+.netlify/
+node_modules/
+*.log

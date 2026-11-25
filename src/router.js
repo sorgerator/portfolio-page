@@ -21,14 +21,6 @@ const DEFAULT_META = {
 };
 
 /**
- * Allows `blog.js` (in Phase 7) to register a custom renderer for `/blog` and `/blog/:slug`.
- * @param {(slug: string | null) => Promise<void> | void} handler
- */
-export function registerBlogRouteHandler(handler) {
-  blogRouteHandler = handler;
-}
-
-/**
  * Updates document title, meta description, canonical link, and Open Graph tags.
  * @param {RouteMeta} meta
  */
@@ -102,42 +94,6 @@ function scrollToAnchor(hash) {
     behavior: prefersReduced ? "auto" : "smooth",
     block: "start",
   });
-}
-
-/**
- * Renders the default `/blog` stub view until Phase 7 attaches `blog.js`.
- * @param {HTMLElement} blogView
- * @param {string | null} slug
- */
-function renderBlogStub(blogView, slug) {
-  if (slug) {
-    blogView.innerHTML = `
-      <section class="shell-stub container">
-        <p class="eyebrow mono">03 / Blog</p>
-        <h1 class="stub-title" tabindex="-1">Post not found</h1>
-        <p class="stub-description">
-          The article <code>${slug.replace(/[<>&"']/g, "")}</code> is not published yet.
-        </p>
-        <div class="stub-actions">
-          <a href="/blog" class="btn-secondary">&larr; Back to Blog</a>
-        </div>
-      </section>
-    `;
-    return;
-  }
-
-  blogView.innerHTML = `
-    <section class="shell-stub container">
-      <p class="eyebrow mono">03 / Blog</p>
-      <h1 class="stub-title" tabindex="-1">Technical Writing &amp; Notes</h1>
-      <p class="stub-description">
-        First posts coming soon — covering machine learning ranking models, automated data pipelines, and building fast web applications without frameworks.
-      </p>
-      <div class="stub-actions">
-        <a href="/" class="btn-secondary">&larr; Back Home</a>
-      </div>
-    </section>
-  `;
 }
 
 /**
@@ -216,25 +172,17 @@ export async function handleRoute(options = {}) {
 
     if (blogRouteHandler) {
       await blogRouteHandler(slug);
-    } else if (blogView) {
-      updateRouteMeta({
-        title: slug
-          ? `${slug} | Blog — Tarik Sorguč`
-          : "Blog | Tarik Sorguč — Data Science & Web Engineering",
-        description:
-          "Articles and engineering notes by Tarik Sorguč on data pipelines, machine learning, and web development.",
-        path,
-      });
-      renderBlogStub(blogView, slug);
     }
 
     if (isPopState && typeof restoreScrollY === "number") {
       window.scrollTo({ top: restoreScrollY, behavior: "auto" });
+    } else if (hash) {
+      scrollToAnchor(hash);
     } else {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
 
-    if (focusHeading) {
+    if (focusHeading && !hash) {
       focusViewHeading(blogView);
     }
     return;

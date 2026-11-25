@@ -365,4 +365,11 @@ export function initCaseStudies() {
   const initialTrack = getInitialTrack();
   const hasUrlParam = new URLSearchParams(window.location.search).has("track");
   setTrack(initialTrack, { updateUrl: hasUrlParam, animate: false });
+
+  // 5. Re-sync track when navigating back/forward via browser history
+  window.addEventListener("popstate", () => {
+    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+      setTrack(getInitialTrack(), { updateUrl: false, animate: false });
+    }
+  });
 }

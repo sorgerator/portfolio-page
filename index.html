@@ -91,10 +91,17 @@
       })();
     </script>
 
-    <!-- Self-Hosted Fonts: Preload primary Latin subsets -->
+    <!-- Self-Hosted Fonts: Preload primary Latin + Latin-Ext subsets -->
     <link
       rel="preload"
       href="/assets/fonts/space-grotesk-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/space-grotesk-latin-ext-wght-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -108,7 +115,7 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/logo_ss.png" />
+    <link rel="icon" type="image/png" href="/assets/img/logo-nav.png" />
     <link rel="apple-touch-icon" href="/assets/logo_ss.png" />
 
     <!-- Modular Stylesheets -->
@@ -589,23 +596,25 @@
                   FlyRank Capstone: Content Decay Prediction and Search Intelligence
                 </h3>
                 <p class="card-summary">
-                  Automated model that evaluates content decay risk and guides
-                  proactive asset refreshing. Built and evaluated ML ranking
-                  models and data pipelines across ~79M rows of search
-                  discoverability data.
+                  Automated machine learning ranking pipeline that predicts
+                  active content decay across 78.8M daily search performance
+                  records (104 client portfolios), achieving 98.0% Precision@50
+                  and generating an editorial Action Playbook with diagnostic
+                  reason codes.
                 </p>
 
-                <!-- Real metrics only (TODO: Add real model performance metrics when supplied) -->
                 <div class="card-metrics" aria-label="Project metrics">
-                  <span class="metric-chip">~79M rows</span>
+                  <span class="metric-chip">78.8M rows</span>
+                  <span class="metric-chip">98.0% Precision@50</span>
                   <span class="metric-chip">2nd place Prolog EXPO</span>
                 </div>
 
                 <div class="card-tags">
                   <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">Scikit-Learn</span>
                   <span class="tech-tag">DuckDB</span>
-                  <span class="tech-tag">Hugging Face</span>
+                  <span class="tech-tag">Pandas</span>
+                  <span class="tech-tag">Machine Learning</span>
                 </div>
               </div>
 
@@ -648,26 +657,32 @@
                 <div class="detail-block">
                   <h4>Problem</h4>
                   <p>
-                    Search visibility decays over time as query intent and
-                    competing pages shift, making it difficult to identify which
-                    content assets are at risk before traffic drops.
+                    Traditional SEO refresh strategies rely on article age or
+                    raw historical traffic—wasting editorial resources on
+                    stable old pages while younger, high-value pages actively
+                    lose clicks to competitors before dropping off page one.
                   </p>
                 </div>
                 <div class="detail-block">
                   <h4>What I Built</h4>
                   <p>
-                    Developed an automated machine learning ranking and content
-                    decay prediction pipeline during my ML Engineering
-                    Internship at FlyRank AI, processing ~79M rows of search
-                    discoverability data using Python, DuckDB, and Hugging Face.
+                    Engineered an end-to-end content decay prediction and
+                    opportunity scoring pipeline during my ML Engineering
+                    Internship at FlyRank AI. Processed 78.8M daily Google
+                    Search Console and GA4 records across 104 client portfolios
+                    (~520K articles) using DuckDB and Python, enforcing strict
+                    client-grouped time-series validation and training a Random
+                    Forest classifier paired with a diagnostic reason-code engine.
                   </p>
                 </div>
                 <div class="detail-block">
                   <h4>Result</h4>
                   <p>
-                    Evaluated content decay risk to guide proactive asset
-                    refreshing and presented the research at Prolog EXPO 2026,
-                    earning 2nd place.
+                    Achieved 98.0% Precision@50 on unseen client portfolios—a
+                    2.88&times; lift over the 34.0% age/visibility baseline
+                    heuristic—producing a ranked queue of 2,916 high-confidence
+                    editorial interventions and winning 2nd place at Prolog EXPO
+                    2026.
                   </p>
                 </div>
               </div>

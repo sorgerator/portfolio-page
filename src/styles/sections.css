@@ -1758,24 +1758,12 @@ body.modal-open {
     padding: 4.5rem 1.25rem;
   }
 
-  .case-card,
   .about-card {
     padding: 1.5rem;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .modal-form-actions {
-    flex-direction: column-reverse;
-    width: 100%;
-  }
-
-  .modal-form-actions .form-submit-btn,
-  .modal-form-actions .modal-cancel-btn {
-    width: 100%;
-    justify-content: center;
   }
 
   .footer-container {

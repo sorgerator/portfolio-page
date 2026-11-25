@@ -1,5 +1,5 @@
 // @ts-check
-import { registerBlogRouteHandler, updateRouteMeta } from "./router.js";
+import { updateRouteMeta } from "./router.js";
 
 /**
  * @typedef {Object} BlogPostMeta
@@ -170,7 +170,7 @@ async function fetchPostMarkdown(slug) {
 
 /**
  * Loads `/content/blog/posts.json`, filters out `draft: true` entries,
- * sorts newest-first, and computes reading time for published posts.
+ * sorts newest-first, and computes reading time for published posts when not precomputed.
  * @returns {Promise<BlogPostMeta[]>}
  */
 async function loadPublishedPosts() {
@@ -191,6 +191,9 @@ async function loadPublishedPosts() {
 
     await Promise.all(
       published.map(async (post) => {
+        if (typeof post.readingMinutes === "number" && post.readingMinutes >= 1) {
+          return;
+        }
         try {
           const md = await fetchPostMarkdown(post.slug);
           post.readingMinutes = calculateReadingMinutes(md);
@@ -415,6 +418,13 @@ function enhanceRenderedPost(proseEl, hljs) {
     if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
     if (!img.hasAttribute("decoding")) img.setAttribute("decoding", "async");
   });
+
+  // 4. External links open safely in a new tab
+  const extLinks = proseEl.querySelectorAll('a[href^="http://"], a[href^="https://"]');
+  extLinks.forEach((link) => {
+    if (!link.hasAttribute("target")) link.setAttribute("target", "_blank");
+    if (!link.hasAttribute("rel")) link.setAttribute("rel", "noopener noreferrer");
+  });
 }
 
 /**
@@ -540,11 +550,4 @@ export async function renderBlogRoute(slug) {
   } else {
     await renderBlogList(blogView);
   }
-}
-
-/**
- * Registers the blog route handler with the SPA router.
- */
-export function initBlog() {
-  registerBlogRouteHandler(renderBlogRoute);
 }

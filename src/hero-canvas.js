@@ -114,8 +114,6 @@ export function initHeroCanvas() {
   let width = 0;
   let height = 0;
   let dpr = 1;
-  let canvasLeft = 0;
-  let canvasTop = 0;
   /** @type {NetworkNode[]} */
   let nodes = [];
   /** @type {number | null} */
@@ -345,8 +343,9 @@ export function initHeroCanvas() {
     heroSection.addEventListener(
       "pointermove",
       (e) => {
-        pointer.x = e.clientX - canvasLeft;
-        pointer.y = e.clientY + window.scrollY - canvasTop;
+        const rect = heroSection.getBoundingClientRect();
+        pointer.x = e.clientX - rect.left;
+        pointer.y = e.clientY - rect.top;
         pointer.active = true;
         if (!driftReady) {
           driftReady = true;
