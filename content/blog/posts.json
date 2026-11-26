@@ -1,5 +1,14 @@
 [
   {
+    "slug": "four-days-in-vilnius-creative-shock-2026",
+    "title": "Four Days in Vilnius: Competing in the Creative Shock 2026 Grand Finals",
+    "date": "2026-11-26",
+    "summary": "Reflections on qualifying in the Top 10 out of 350+ teams with the Wild Cards, spending four intense days at ISM University in Vilnius, sharing Bosnian coffee on Culture Night, and pitching Gradimo live to VCs and founders.",
+    "tags": ["Hackathon", "Vilnius", "Startup", "Teamwork", "Creative Shock"],
+    "readingMinutes": 4,
+    "draft": false
+  },
+  {
     "slug": "predicting-content-decay-at-scale-flyrank-ai",
     "title": "Predicting Content Decay Across 78.8M Search Records: My ML Engineering Internship at FlyRank AI",
     "date": "2026-11-24",

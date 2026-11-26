@@ -189,6 +189,18 @@ function initCaseDialog(cards) {
     doneBtn.addEventListener("click", closeDialog);
   }
 
+  if (linksEl) {
+    linksEl.addEventListener("click", (e) => {
+      const target = /** @type {HTMLElement | null} */ (e.target);
+      const anchor = target ? target.closest("a") : null;
+      const href = anchor ? anchor.getAttribute("href") : null;
+      if (href && (href.startsWith("/") || href.startsWith("#")) && anchor?.getAttribute("target") !== "_blank") {
+        lastTriggerBtn = null;
+        closeDialog();
+      }
+    });
+  }
+
   cards.forEach((card) => {
     const detailsBtn = /** @type {HTMLElement | null} */ (
       card.querySelector(".card-details-btn")

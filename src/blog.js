@@ -219,7 +219,7 @@ async function renderBlogList(container) {
   updateRouteMeta({
     title: "Blog | Tarik Sorguč — Data Science & Web Engineering",
     description:
-      "Articles and technical notes by Tarik Sorguč on machine learning ranking models, automated data pipelines, and web engineering.",
+      "Articles, technical deep dives, and hackathon field notes by Tarik Sorguč on machine learning, data pipelines, web engineering, and international competitions.",
     path: "/blog",
   });
 
@@ -232,7 +232,7 @@ async function renderBlogList(container) {
           <p class="eyebrow mono">04 / Blog</p>
           <h1 class="blog-title" tabindex="-1">Technical Writing &amp; Notes</h1>
           <p class="blog-lead">
-            Deep dives into machine learning ranking models, multimodal data pipelines, and building fast web applications without frameworks.
+            Deep dives into machine learning pipelines and web engineering, alongside field notes from international hackathons and competitions.
           </p>
         </header>
 
@@ -324,7 +324,7 @@ async function renderBlogList(container) {
         <p class="eyebrow mono">04 / Blog</p>
         <h1 class="blog-title" tabindex="-1">Technical Writing &amp; Notes</h1>
         <p class="blog-lead">
-          Deep dives into machine learning ranking models, multimodal data pipelines, and building fast web applications without frameworks.
+          Deep dives into machine learning pipelines and web engineering, alongside field notes from international hackathons and competitions.
         </p>
       </header>
 
