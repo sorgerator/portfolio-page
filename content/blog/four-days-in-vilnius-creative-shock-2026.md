@@ -1,6 +1,6 @@
 Back in October, when we recorded a short video pitch from Sarajevo and sent it in for **Creative Shock 2026**, flying to Lithuania still felt pretty distant. A few weeks later, the results came back: out of **more than 350 registered teams**, our team, **Wild Cards**, had made the **Top 10** and qualified for the Grand Finals in Vilnius.
 
-From **November 18 to 21**, **Anad Curukovic**, **Dženita Silajdžić**, **Mak Žiga**, and I spent four packed days at **ISM University of Management and Economics** in Vilnius. We went there to turn **Gradimo** from an early online pitch into a working product and put it in front of an international jury. Since we're planning to keep building Gradimo and take it toward startup accelerators next, I'll hold off on sharing the inner workings of the product for now, and instead write down what those four days in Lithuania were actually like.
+From **November 18 to 21**, **Anad Curukovic**, **Dženita Silajdžić**, **Mak Žiga**, and I spent four packed days at **ISM University of Management and Economics** in Vilnius, where we took **Gradimo** from an early online pitch to a working product and presented it in front of an international jury.
 
 <figure class="blog-figure">
   <img
@@ -20,9 +20,9 @@ Landing in Vilnius in mid-November was an immediate change of scenery from Saraj
 
 Walking into ISM on the first day made everything feel very real. Nine other finalist teams had flown in from different countries, and everyone had the same mix of travel tiredness and focus. Once the opening session wrapped up, the clock started, and the next four days blurred into one long stretch of building, workshops, and rehearsals.
 
-## Four IT Engineers in a Business Competition
+## Four IT Engineers at a Social Business Hackathon
 
-Creative Shock is primarily a social business case competition, so most of the people competing come from business, finance, or economics backgrounds. Showing up as **four IT engineering students from International Burch University (IBU)** gave us a slightly different angle.
+Creative Shock is an international social business hackathon, challenging teams to turn socially impactful ideas into viable businesses. Coming into it as **four IT engineering students from International Burch University (IBU)** gave us a strong technical perspective from day one.
 
 Because we're engineers, we didn't want to show up with just a slide deck. We wanted a real, working version of **Gradimo** across Web, iOS, and Android that people could actually try out alongside our business case.
 
@@ -36,28 +36,28 @@ It ended up being one of my favorite parts of the trip. People from the other fi
 
 ## Workshops, the Mentor Carousel, and the Final Pitch
 
-On the competition side, the biggest wakeup call came from the workshops with **Hostinger** and **Moody's Corporation**, followed by the **Mentor Carousel**.
+During the hackathon, the biggest wakeup call came from the workshops with **Hostinger** and **Moody's Corporation**, followed by the **Mentor Carousel**.
 
 When you spend days building software, it is easy to assume that a working demo speaks for itself. Sitting down with experienced mentors one after another quickly proved otherwise. In back-to-back sessions, mentors pushed hard on our assumptions, our numbers, and how we planned to bring the product to market. Every weak spot they pointed out during the day became our homework that night.
 
 That preparation paid off on the final day when we stepped onstage to pitch live to a **jury of VCs, founders, and industry leaders**. Answering tough questions and defending our numbers on the spot was intense, especially knowing how strong the other teams were, but all the pushback earlier in the week meant very few questions caught us off guard.
 
-## Looking Back (and What's Next)
+## Looking Back
 
-One person who made our stay in Vilnius much smoother was **Radvilas Bliukis**, our team mentor and local ambassador throughout the event. From showing us around the city to checking on us between rounds, his hospitality made a huge difference on our first visit to Lithuania. Before heading home, we gave him an **International Burch University** tote bag as a small thank-you from Sarajevo.
+One person who made our stay in Vilnius much smoother was **Radvilas Bliukis**, our team mentor and local ambassador throughout the event. Right at the start of the hackathon, we handed him a thank-you present from Bosnia and Herzegovina, and over the next four days his guidance and hospitality made a huge difference on our first visit to Lithuania, from showing us around the city to checking in on us between rounds.
 
 <figure class="blog-figure blog-figure--compact">
   <img
     src="/assets/img/blog/creative-shock-2026-mentor-gift.webp"
-    alt="Wild Cards team gifting an International Burch University tote bag to team mentor Radvilas Bliukis in Vilnius"
+    alt="Wild Cards team giving a thank-you present from Bosnia and Herzegovina to team mentor Radvilas Bliukis at the beginning of Creative Shock 2026"
     width="1024"
     height="1024"
   />
   <figcaption>
-    Giving Radvilas Bliukis an International Burch University gift bag before leaving Vilnius as a thank-you for his guidance and hospitality all week.
+    Giving Radvilas Bliukis a thank-you present from Bosnia and Herzegovina at the beginning of the event.
   </figcaption>
 </figure>
 
-Coming home with a **Top 10 finish out of 350+ teams** is something I'm really proud of, and a lot of people helped make it happen. Huge credit to **Anad Curukovic**, **Dženita Silajdžić**, and **Mak Žiga** for putting in the work from day one. Thank you as well to **International Burch University** for supporting our trip to Lithuania, to **Radvilas Bliukis** for looking after us in Vilnius, and to the entire **Creative Shock** organizing team at **ISM University** for putting together a great competition.
+Coming home with a **Top 10 finish out of 350+ teams** is something I'm really proud of, and a lot of people helped make it happen. Huge credit to **Anad Curukovic**, **Dženita Silajdžić**, and **Mak Žiga** for putting in the work from day one. Thank you as well to **International Burch University** for supporting our trip to Lithuania, to **Radvilas Bliukis** for looking after us in Vilnius, and to the entire **Creative Shock** organizing team at **ISM University** for putting together a great hackathon.
 
-More than anything, the feedback we got from mentors and investors in Vilnius convinced us that **Gradimo** shouldn't stay a hackathon project. Now that we're back in Sarajevo, our focus is on taking what we learned there, refining the product, and preparing to apply to startup accelerators to turn it into a real company.
+More than anything, the feedback we got from mentors and investors in Vilnius gave us real momentum, and we're excited to keep building **Gradimo** now that we're back in Sarajevo.
